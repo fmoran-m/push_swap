@@ -26,22 +26,24 @@ static t_stack	*create_stack(char **numbers)
 {
 	int		i;
 	t_stack	*node;
-	
+	t_stack	*head;
+
 	i = 0;
-	stack = NULL;
+	node = ft_stnew(ft_atoi(numbers[i]));
+	if (!node)
+	{
+		ft_free_matrix(numbers);
+		exit(1);
+	}
+	head = node;
+	i++;
 	while(numbers[i])
 	{
 		node = ft_stnew(ft_atoi(numbers[i]));
-		if (!node)
-		{
-			ft_free_matrix(numbers);
-			exit(1);
-		}
-		else
-			ft_stadd_back(stack, node);
+		ft_stadd_back(&head, node);
 		i++;
 	}
-	return (*stack);
+	return (head);
 }
 
 t_stack	*stack_init(char *argv)
@@ -50,7 +52,7 @@ t_stack	*stack_init(char *argv)
 	t_stack	*stack_a;
 
 	numbers = ft_split(argv, ' ');
-	if (!ft_split)
+	if (!numbers)
 		exit(1);
 	control_digits(numbers);
 	stack_a = create_stack(numbers);

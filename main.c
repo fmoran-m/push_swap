@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:19:00 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/07 22:29:37 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/11 16:09:10 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 	control_argc(argc);
 	stack_a = stack_init(argv[1]);
 	stack_b = NULL;
-	while(stack_a->num != 5)
+	while(stack_a)
 	{
 		ft_printf("%d\n", stack_a->num);
 		stack_a = stack_a->next;
