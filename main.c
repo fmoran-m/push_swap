@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:19:00 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/11 16:21:58 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:20:54 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	control_argc(int argc)
 {
 	if (argc != 2)
 	{
-		ft_putendl_fd("Incorrect number of arguments", 2);
+		ft_putendl_fd("Error", 2);
 		exit(1);
 	}
 }

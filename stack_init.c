@@ -15,7 +15,7 @@ static void	control_digits(char **numbers)
 		{
 			if (!ft_isdigit(numbers[i][j]))
 			{
-				ft_printf("Error!\n");
+				ft_putendl_fd("Error", 2);
 				exit(1);
 			}
 			j++;
@@ -30,7 +30,7 @@ static void	check_repeat(int num, t_stack *head)
 	{
 		if (num == head->num)
 		{
-			ft_printf("Error!\n", num);
+			ft_putendl_fd("Error", 2);
 			exit(1); //LIBERAR!
 		}
 		head = head->next;
@@ -64,6 +64,20 @@ static t_stack	*create_stack(char **numbers)
 	return (head);
 }
 
+static void	check_empty_string(char *argv)
+{
+	int	i;
+
+	i = 0;
+	while(argv[i] == ' ')
+		i++;
+	if (argv[i] == 0)
+	{
+		ft_putendl_fd("Error", 2);
+		exit(1);
+	}
+}
+
 t_stack	*stack_init(char *argv)
 {
 	char	**numbers;
@@ -71,9 +85,10 @@ t_stack	*stack_init(char *argv)
 
 	if (!*argv)
 	{
-		ft_printf("Error!\n");
+		ft_putendl_fd("Error", 2);
 		exit(1);
 	}
+	check_empty_string(argv);
 	numbers = ft_split(argv, ' ');
 	if (!numbers)
 		exit(1);
