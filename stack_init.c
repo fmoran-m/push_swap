@@ -22,9 +22,23 @@ static void	control_digits(char **numbers)
 	}
 }
 
+static void	check_repeat(int num, t_stack *head)
+{
+	while(head)
+	{
+		if (num == head->num)
+		{
+			ft_printf("Error!\n", num);
+			exit(1); //LIBERAR!
+		}
+		head = head->next;
+	}
+}
+
 static t_stack	*create_stack(char **numbers)
 {
 	int		i;
+	int		num;
 	t_stack	*node;
 	t_stack	*head;
 
@@ -39,7 +53,9 @@ static t_stack	*create_stack(char **numbers)
 	i++;
 	while(numbers[i])
 	{
-		node = ft_stnew(ft_atoi(numbers[i]));
+		num = ft_atoi(numbers[i]);
+		check_repeat(num, head);
+		node = ft_stnew(num);
 		ft_stadd_back(&head, node);
 		i++;
 	}
