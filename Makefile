@@ -20,13 +20,13 @@ CC = cc
 
 LM = make bonus -C
 
-CFLAGS = -Wall -Wextra -Werror
+#CFLAGS = -Wall -Wextra -Werror
 
 INCLUDES = push_swap.h
 
 RM = rm -f
 
-SRC = main.c
+SRC = main.c stack_init.c stack_functions.c
 
 OBJS = ${SRC:.c=.o}
 

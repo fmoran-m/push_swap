@@ -12,14 +12,27 @@
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+static void	control_argc(int argc)
 {
-	if (argc < 2)
+	if (argc != 2)
 	{
 		ft_putendl_fd("Incorrect number of arguments", 2);
 		exit(1);
 	}
-	argv = NULL;
-	return (0);
 }
 
+int main(int argc, char **argv)
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+
+	control_argc(argc);
+	stack_a = stack_init(argv[1]);
+	stack_b = NULL;
+	while(stack_a->num != 5)
+	{
+		ft_printf("%d\n", stack_a->num);
+		stack_a = stack_a->next;
+	}
+	return (0);
+}

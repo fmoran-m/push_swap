@@ -13,4 +13,14 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft/libft.h"
+typedef struct s_stack
+{
+	int				num;
+	struct s_stack	*next;
+}				t_stack;
+t_stack	*stack_init(char *argv);
+t_stack	*ft_stnew(int content);
+t_stack	*ft_stlast(t_stack *st);
+void	ft_stadd_back(t_stack **st, t_stack *new);
+void	ft_stadd_front(t_stack **st, t_stack *new);
 #endif
