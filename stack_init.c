@@ -9,6 +9,8 @@ static void	control_digits(char **numbers)
 	while(numbers[i])
 	{
 		j = 0;
+		if (numbers[i][j] == '-')
+			j++;
 		while(numbers[i][j])
 		{
 			if (!ft_isdigit(numbers[i][j]))
@@ -67,6 +69,11 @@ t_stack	*stack_init(char *argv)
 	char	**numbers;
 	t_stack	*stack_a;
 
+	if (!*argv)
+	{
+		ft_printf("Error!\n");
+		exit(1);
+	}
 	numbers = ft_split(argv, ' ');
 	if (!numbers)
 		exit(1);
