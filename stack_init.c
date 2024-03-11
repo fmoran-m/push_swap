@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/11 18:39:01 by fmoran-m          #+#    #+#             */
+/*   Updated: 2024/03/11 19:26:13 by fmoran-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	control_digits(char **numbers)
@@ -37,15 +49,26 @@ static void	check_repeat(int num, t_stack *head)
 	}
 }
 
+static void	check_max_int(long long num)
+{
+	if (num > INT_MAX || num < INT_MIN)
+	{
+		ft_putendl_fd("Error", 2);
+		exit(1);
+	}
+}
+
 static t_stack	*create_stack(char **numbers)
 {
-	int		i;
-	int		num;
+	int			i;
+	long long	num;
 	t_stack	*node;
 	t_stack	*head;
 
 	i = 0;
-	node = ft_stnew(ft_atoi(numbers[i]));
+	num = ft_long_atoi(numbers[i]);
+	node = ft_stnew(num);
+	check_max_int(num);
 	if (!node)
 	{
 		ft_free_matrix(numbers);
@@ -55,7 +78,8 @@ static t_stack	*create_stack(char **numbers)
 	i++;
 	while(numbers[i])
 	{
-		num = ft_atoi(numbers[i]);
+		num = ft_long_atoi(numbers[i]);
+		check_max_int(num);
 		check_repeat(num, head);
 		node = ft_stnew(num);
 		ft_stadd_back(&head, node);

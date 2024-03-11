@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 22:19:00 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/11 18:41:02 by fmoran-m         ###   ########.fr       */
+/*   Created: 2024/03/11 19:09:25 by fmoran-m          #+#    #+#             */
+/*   Updated: 2024/03/11 19:28:18 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	control_argc(int argc)
+long long	ft_long_atoi(const char *str)
 {
-	if (argc != 2)
+	long long	acum;
+	int	i;
+	int	flag;
+
+	acum = 0;
+	i = 0;
+	flag = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		ft_putendl_fd("Error", 2);
-		exit(1);
+		if (str[i] == '-')
+			flag = 1;
+		i++;
 	}
-}
-
-int main(int argc, char **argv)
-{
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-
-	control_argc(argc);
-	stack_a = stack_init(argv[1]);
-	stack_b = NULL;
-	return (0);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		acum = acum * 10 + (str[i] - 48);
+		i++;
+	}
+	if (flag == 1)
+		acum = acum * -1;
+	return (acum);
 }
