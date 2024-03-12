@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 18:38:51 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/11 20:20:02 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:36:31 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_stclear(t_stack **st)
 
 	if (!st)
 		return ;
-	while (st)
+	while (*st)
 	{
 		temp = (*st)->next;
 		ft_stdelone(*st);

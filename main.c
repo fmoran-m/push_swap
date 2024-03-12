@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:19:00 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/11 18:41:02 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:46:47 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int main(int argc, char **argv)
 	control_argc(argc);
 	stack_a = stack_init(argv[1]);
 	stack_b = NULL;
+	ft_stclear(&stack_a);
 	return (0);
 }

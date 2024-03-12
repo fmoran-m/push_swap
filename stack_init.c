@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 18:39:01 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/11 20:49:05 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:48:50 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	check_repeat(int num, char **numbers, t_stack *stack)
 		{
 			ft_putendl_fd("Error", 2);
 			ft_free_matrix(numbers);
+			ft_stclear(&stack);
 			exit(1);
 		}
 		stack = stack->next;
@@ -57,6 +58,7 @@ static int	check_max_int(long long num, char **numbers, t_stack *stack)
 	{
 		ft_putendl_fd("Error", 2);
 		ft_free_matrix(numbers);
+		ft_stclear(&stack);
 		return (0);
 	}
 	else
@@ -105,6 +107,7 @@ static t_stack	*create_stack(char **numbers)
 		{
 			ft_putendl_fd("Error", 2);
 			ft_free_matrix(numbers);
+			ft_stclear(&head);
 			exit(1);
 		}
 		ft_stadd_back(&head, node);
