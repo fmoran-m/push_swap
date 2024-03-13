@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 20:36:40 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/12 21:53:50 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/13 17:33:26 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,27 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 	sa(stack_a);
 	sb(stack_b);
 }
-/*
-void	pa(t_stack *stack_a, t_stack *stack_b)
 
-void	pb(t_stack *stack_a, t_stack *stack_b)
-*/
+void	pb(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack *temp;
+
+	if (!*stack_a)
+		return;
+	temp = *stack_b;
+	*stack_b = *stack_a;
+	*stack_a = (*stack_a)->next;
+	(*stack_b)->next = temp;
+}
+
+void	pa(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack *temp;
+
+	if (!*stack_b)
+		return;
+	temp = *stack_a;
+	*stack_a = *stack_b;
+	*stack_b = (*stack_b)->next;
+	(*stack_a)->next = temp;
+}

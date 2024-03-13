@@ -6,7 +6,7 @@
 #    By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 16:57:26 by fmoran-m          #+#    #+#              #
-#    Updated: 2024/03/12 21:30:34 by fmoran-m         ###   ########.fr        #
+#    Updated: 2024/03/13 16:18:39 by fmoran-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CC = cc
 
 LM = make bonus -C
 
-CFLAGS = -Wall -Wextra -Werror
+#CFLAGS = -Wall -Wextra -Werror
 
 INCLUDES = push_swap.h
 

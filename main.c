@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:19:00 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/12 22:00:19 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/13 17:35:30 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ int main(int argc, char **argv)
 
 	control_argc(argc);
 	stack_a = stack_init(argv[1]);
-	stack_b = stack_init(argv[1]);
-	ss(&stack_a, &stack_b);
+	stack_b = NULL;
+	printf("Stack A\n");
 	while(stack_a)
 	{
 		printf("%d\n", stack_a->num);
 		stack_a = stack_a->next;
 	}
+	printf("Stack B\n");
 	while(stack_b)
 	{
 		printf("%d\n", stack_b->num);
