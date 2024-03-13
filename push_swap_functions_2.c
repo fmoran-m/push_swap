@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:37:31 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/13 19:15:30 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:42:57 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ra(t_stack **stack_a)
 	t_stack	*temp;
 	t_stack	*temp2;
 
+	if(!*stack_a)
+		return;
 	temp = *stack_a;
 	*stack_a = (*stack_a)->next;
 	temp->next = NULL;
@@ -32,6 +34,8 @@ void	rb(t_stack **stack_b)
 	t_stack	*temp;
 	t_stack	*temp2;
 
+	if(!*stack_b)
+		return;
 	temp = *stack_b;
 	*stack_b = (*stack_b)->next;
 	temp->next = NULL;
@@ -52,8 +56,9 @@ void	rra(t_stack **stack_a)
 {
 	t_stack	*temp;
 	t_stack	*head;
-	t_stack	*new;
 
+	if (!*stack_a)
+		return;
 	head = *stack_a;
 	while((*stack_a)->next != NULL)
 	{
@@ -68,8 +73,9 @@ void	rrb(t_stack **stack_b)
 {
 	t_stack	*temp;
 	t_stack	*head;
-	t_stack	*new;
 
+	if (!*stack_b)
+		return;
 	head = *stack_b;
 	while((*stack_b)->next != NULL)
 	{
