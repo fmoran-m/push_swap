@@ -6,7 +6,7 @@
 #    By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 16:57:26 by fmoran-m          #+#    #+#              #
-#    Updated: 2024/03/13 16:18:39 by fmoran-m         ###   ########.fr        #
+#    Updated: 2024/03/13 17:39:44 by fmoran-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ INCLUDES = push_swap.h
 
 RM = rm -f
 
-SRC = main.c stack_init.c stack_functions.c push_swap_utils.c push_swap_functions.c
+SRC = main.c stack_init.c stack_functions.c push_swap_utils.c push_swap_functions.c push_swap_functions_2.c
 
 OBJS = ${SRC:.c=.o}
 
