@@ -99,29 +99,68 @@ static t_stack	*add_index(t_stack *stack, int *aux_array)
 	}
 	return (head);
 }
-/*
-static void	check_order(t_stack *stack_a, t_stack *stack_b, int stack_len)
-{
-	int	diff;
-	int	prev_pos;
 
-	diff = 1;
-	prev_pos = stack_a->pos;
-	stack_a = stack_a->next;
+static int	check_sort(t_stack *stack_a)
+{
+	int	temp;
+
+	temp = stack_a->num;
 	while(stack_a)
 	{
-		diff = stack_a->num - prev_pos;
-		if (diff != 1)
-			break;
-		prev_pos = stack_a->pos;
+		stack_a = stack_a->next;
+		if (stack_a->num < temp)
+			return(0);
+	}
+	return (1);
+}
+
+static void	sort_three(t_stack **stack)
+{
+	t_stack *next;
+
+	next = (*stack)->next;
+	if ((*stack)->pos == 1 && next->pos == 2)
+		rra(stack, PRINT);
+	else if ((*stack)->pos == 1 && next->pos == 0)
+		sa(stack, PRINT);
+	else if ((*stack)->pos == 2 && next->pos == 0)
+		ra(stack, PRINT);
+	else if ((*stack)->pos == 0 && next->pos == 2)
+	{
+		rra(stack, PRINT);
+		sa(stack, PRINT);
+	}
+	else if((*stack)->pos == 2 && next->pos == 1)
+	{
+		sa(stack, PRINT);
+		rra(stack, PRINT);
+	}
+}
+
+static t_stack *sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len)
+{
+	if (stack_len == 1)
+		return(stack_a);
+	if (stack_len == 2)
+	{
+		if (stack_a->pos != 0)
+			sa(&stack_a, PRINT);
+		return(stack_a);
+	}
+	if (stack_len == 3)
+		sort_three(&stack_a);
+	return (stack_a);
+}
+
+static void	print_stack(t_stack *stack_a)
+{
+	while(stack_a)
+	{
+		printf("%d\n", stack_a->num);
 		stack_a = stack_a->next;
 	}
-	if (diff == 1)
-		return (1);
-	else
-		return (0);
 }
-*/
+
 int main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -136,28 +175,8 @@ int main(int argc, char **argv)
 	aux_array = bubblesort(stack_a, stack_len);
 	stack_a = add_index(stack_a, aux_array);
 	free(aux_array);
-	int	i = 0;
-	while(stack_a)
-	{
-		if (stack_a->pos != i)
-			ra(&stack_a, PRINT);
-		else 
-		{
-			pb(&stack_a, &stack_b);
-			i++;
-		}
-	}
-	i = 0;
-	while(i < stack_len)
-	{
-		pa(&stack_a, &stack_b);
-		i++;
-	}
-	while(stack_a)
-	{
-		printf("%d\n", stack_a->num);
-		stack_a = stack_a->next;
-	}
+	stack_a = sort_numbers(stack_a, stack_b, stack_len);
+	print_stack(stack_a);
 	ft_stclear(&stack_a);
 	ft_stclear(&stack_b);
 	return (0);
