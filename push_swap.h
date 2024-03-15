@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:12 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/13 21:09:00 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/15 19:51:06 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_stack
 {
 	int				num;
 	int				pos;
+	int				rel;
 	struct s_stack	*next;
 }				t_stack;
 t_stack		*stack_init(char *argv);
