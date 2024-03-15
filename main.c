@@ -100,16 +100,17 @@ static t_stack	*add_index(t_stack *stack, int *aux_array)
 	return (head);
 }
 
-static int	check_sort(t_stack *stack_a)
+static int	check_sort(t_stack *stack)
 {
 	int	temp;
 
-	temp = stack_a->num;
-	while(stack_a)
+	temp = 0;
+	while(stack)
 	{
-		stack_a = stack_a->next;
-		if (stack_a->num < temp)
-			return(0);
+		if (temp != stack->pos)
+			return (0);
+		stack = stack->next;
+		temp++;
 	}
 	return (1);
 }
@@ -139,7 +140,7 @@ static void	sort_three(t_stack **stack)
 
 static t_stack *sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len)
 {
-	if (stack_len == 1)
+	if (check_sort(stack_a))
 		return(stack_a);
 	if (stack_len == 2)
 	{
@@ -148,9 +149,11 @@ static t_stack *sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len)
 		return(stack_a);
 	}
 	if (stack_len == 3)
+	{
 		sort_three(&stack_a);
-	return (stack_a);
-}
+		return(stack_a);
+	}
+}	
 
 static void	print_stack(t_stack *stack_a)
 {
