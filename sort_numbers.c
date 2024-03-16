@@ -78,16 +78,14 @@ static void	push_b_to_a(t_stack **stack_a, t_stack **stack_b)
 		i++;
 		*stack_a = (*stack_a)->next;
 	}
-	i = 0;
 	*stack_a = head;
+	i = 0;
 	while(i < rot)
 	{
 		ra(stack_a, PRINT);
 		i++;
 	}
 	pa(stack_a, stack_b);
-	while((*stack_a)->pos != 0)
-		rra(stack_a, PRINT);
 }
 
 t_stack	*sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len)
@@ -110,6 +108,9 @@ t_stack	*sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len)
 		pb(&stack_a, &stack_b);
 		sort_three(&stack_a);
 		push_b_to_a(&stack_a, &stack_b);
+		while(stack_a->pos != 0)
+			rra(&stack_a, PRINT);
+		return(stack_a);
 	}
 	return(stack_a);
 }	
