@@ -41,4 +41,9 @@ void		rr(t_stack **stack_a, t_stack **stack_b);
 void		rra(t_stack **stack_a, int print_flag);
 void		rrb(t_stack **stack_b, int print_flag);
 void		rrr(t_stack **stack_a, t_stack **stack_b);
+t_stack		*sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len);
+int			*bubblesort(t_stack *stack_a, int stack_len);
+int			get_stack_len(t_stack *stack);
+int			get_index(int num, int *array);
+t_stack		*add_index(t_stack *stack, int *aux_array);
 #endif

@@ -38,3 +38,16 @@ long long	ft_long_atoi(const char *str)
 		acum = acum * -1;
 	return (acum);
 }
+
+int	get_stack_len(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while(stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
+}
