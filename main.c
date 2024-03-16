@@ -25,7 +25,7 @@ static void	print_stack(t_stack *stack_a)
 {
 	while(stack_a)
 	{
-		printf("Number: %d, Rel index: %d\n", stack_a->num, stack_a->rel);
+		printf("Number: %d, index: %d\n", stack_a->num, stack_a->pos);
 		stack_a = stack_a->next;
 	}
 }

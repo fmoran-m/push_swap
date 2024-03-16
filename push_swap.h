@@ -19,7 +19,6 @@ typedef struct s_stack
 {
 	int				num;
 	int				pos;
-	int				rel;
 	struct s_stack	*next;
 }				t_stack;
 t_stack		*stack_init(char *argv);
