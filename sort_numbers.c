@@ -112,5 +112,16 @@ t_stack	*sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len)
 			rra(&stack_a, PRINT);
 		return(stack_a);
 	}
+	if (stack_len == 5)
+	{
+		pb(&stack_a, &stack_b);
+		pb(&stack_a, &stack_b);
+		sort_three(&stack_a);
+		push_b_to_a(&stack_a, &stack_b);
+		push_b_to_a(&stack_a, &stack_b);
+		while(stack_a->pos != 0)
+			rra(&stack_a, PRINT);
+		return(stack_a);
+	}
 	return(stack_a);
 }	
