@@ -88,31 +88,83 @@ static void	push_b_to_a(t_stack **stack_a, t_stack **stack_b)
 	pa(stack_a, stack_b);
 }
 
+static void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
+{
+
+	int		rot;
+	int		i;
+	int		diff;
+	t_stack	*head;
+
+	rot = 0;
+	i = 0;
+	diff = INT_MIN;
+	head = *stack_b;
+	while(*stack_b)
+	{
+		if (((*stack_b)->pos < (*stack_a)->pos)
+			&& ((*stack_b)->pos - (*stack_a)->pos) > diff)
+		{
+			rot = i;
+			diff = (*stack_b)->pos - (*stack_a)->pos;
+		}
+		i++;
+		*stack_b = (*stack_b)->next;
+	}
+	*stack_b = head;
+	i = 0;
+	while(i < rot)
+	{
+		rb(stack_b, PRINT);
+		i++;
+	}
+	pb(stack_a, stack_b);
+}
+
+static t_stack	*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len)
+{
+	int	current_len;
+	int	i;
+
+	current_len = stack_len - 2;
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	while(current_len > 3)
+	{
+		push_a_to_b(&stack_a, &stack_b);
+		current_len--;
+	}
+	while(current_len < stack_len)
+	{
+		push_b_to_a(&stack_a, &stack_b);
+		current_len++;
+	}
+	i = 0;
+	while(stack_a->pos != 0)
+		rra(&stack_a, PRINT);
+	return(stack_a);
+}
+
 t_stack	*sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len)
 {
 	if (check_sort(stack_a))
 		return(stack_a);
-	if (stack_len == 2)
+	else if (stack_len == 2)
 	{
 		if (stack_a->pos != 0)
 			sa(&stack_a, PRINT);
-		return(stack_a);
 	}
-	if (stack_len == 3)
-	{
+	else if (stack_len == 3)
 		sort_three(&stack_a);
-		return(stack_a);
-	}
-	if (stack_len == 4)
+	else if (stack_len == 4)
 	{
 		pb(&stack_a, &stack_b);
 		sort_three(&stack_a);
 		push_b_to_a(&stack_a, &stack_b);
 		while(stack_a->pos != 0)
 			rra(&stack_a, PRINT);
-		return(stack_a);
 	}
-	if (stack_len == 5)
+	else if (stack_len == 5)
 	{
 		pb(&stack_a, &stack_b);
 		pb(&stack_a, &stack_b);
@@ -121,7 +173,8 @@ t_stack	*sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len)
 		push_b_to_a(&stack_a, &stack_b);
 		while(stack_a->pos != 0)
 			rra(&stack_a, PRINT);
-		return(stack_a);
 	}
+	else
+		stack_a = turk_algorithm(stack_a, stack_b, stack_len);
 	return(stack_a);
 }	
