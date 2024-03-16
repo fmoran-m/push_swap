@@ -56,6 +56,40 @@ static int	check_sort(t_stack *stack)
 	return (1);
 }
 
+static void	push_b_to_a(t_stack **stack_a, t_stack **stack_b)
+{
+	int		rot;
+	int		i;
+	int		diff;
+	t_stack	*head;
+
+	rot = 0;
+	i = 0;
+	diff = INT_MAX;
+	head = *stack_a;
+	while(*stack_a)
+	{
+		if (((*stack_a)->pos > (*stack_b)->pos)
+			&& ((*stack_a)->pos - (*stack_b)->pos) < diff)
+		{
+			rot = i;
+			diff = (*stack_a)->pos - (*stack_b)->pos;
+		}
+		i++;
+		*stack_a = (*stack_a)->next;
+	}
+	i = 0;
+	*stack_a = head;
+	while(i < rot)
+	{
+		ra(stack_a, PRINT);
+		i++;
+	}
+	pa(stack_a, stack_b);
+	while((*stack_a)->pos != 0)
+		rra(stack_a, PRINT);
+}
+
 t_stack	*sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len)
 {
 	if (check_sort(stack_a))
@@ -75,7 +109,7 @@ t_stack	*sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len)
 	{
 		pb(&stack_a, &stack_b);
 		sort_three(&stack_a);
-		while ()
+		push_b_to_a(&stack_a, &stack_b);
 	}
 	return(stack_a);
 }	
