@@ -78,6 +78,20 @@ static void	push_b_to_a(t_stack **stack_a, t_stack **stack_b)
 		i++;
 		*stack_a = (*stack_a)->next;
 	}
+	if (diff == INT_MAX)
+	{
+		*stack_a = head;
+		i = 0;
+		rot = 0;
+		diff = (*stack_a)->pos;
+		while(*stack_a)
+		{
+			if ((*stack_a)->pos < diff)
+				rot = i;
+			i++;
+			*stack_a = (*stack_a)->next;
+		}
+	}
 	*stack_a = head;
 	i = 0;
 	while(i < rot)
@@ -110,6 +124,20 @@ static void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
 		}
 		i++;
 		*stack_b = (*stack_b)->next;
+	}
+	if (diff == INT_MIN)
+	{
+		*stack_b = head;
+		i = 0;
+		rot = 0;
+		diff = (*stack_b)->pos;
+		while(*stack_b)
+		{
+			if ((*stack_b)->pos > diff)
+				rot = i;
+			i++;
+			*stack_b = (*stack_b)->next;
+		}
 	}
 	*stack_b = head;
 	i = 0;
