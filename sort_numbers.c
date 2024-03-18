@@ -116,7 +116,7 @@ static void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	head = *stack_b;
 	while(*stack_b)
 	{
-		if (((*stack_b)->pos < (*stack_a)->pos)
+		if (((*stack_a)->pos > (*stack_b)->pos)
 			&& ((*stack_b)->pos - (*stack_a)->pos) > diff)
 		{
 			rot = i;
@@ -134,7 +134,10 @@ static void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
 		while(*stack_b)
 		{
 			if ((*stack_b)->pos > diff)
+			{
 				rot = i;
+				diff = (*stack_b)->pos;
+			}
 			i++;
 			*stack_b = (*stack_b)->next;
 		}
@@ -162,6 +165,7 @@ static t_stack	*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len
 		push_a_to_b(&stack_a, &stack_b);
 		current_len--;
 	}
+	sort_three(&stack_a);
 	while(current_len < stack_len)
 	{
 		push_b_to_a(&stack_a, &stack_b);
