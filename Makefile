@@ -6,7 +6,7 @@
 #    By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 16:57:26 by fmoran-m          #+#    #+#              #
-#    Updated: 2024/03/13 19:38:15 by fmoran-m         ###   ########.fr        #
+#    Updated: 2024/03/18 19:51:21 by fmoran-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,13 @@ CC = cc
 
 LM = make bonus -C
 
-#CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 INCLUDES = push_swap.h
 
 RM = rm -f
 
-SRC = main.c stack_init.c stack_functions.c push_swap_utils.c push_swap_functions.c push_swap_functions_2.c sort_numbers.c sort_array.c add_index.c
+SRC = main.c stack_init.c stack_functions.c push_swap_utils.c push_swap_functions.c push_swap_functions_2.c sort_numbers.c sort_array.c add_index.c sort_two_to_four.c push_stacks.c
 
 OBJS = ${SRC:.c=.o}
 

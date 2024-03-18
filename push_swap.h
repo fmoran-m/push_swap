@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:12 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/15 19:51:06 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/18 19:49:06 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,11 @@ int			*bubblesort(t_stack *stack_a, int stack_len);
 int			get_stack_len(t_stack *stack);
 int			get_index(int num, int *array);
 t_stack		*add_index(t_stack *stack, int *aux_array);
+t_stack		*sort_two_to_four(t_stack *stack_a, t_stack *stack_b, int stack_len);
+void		sort_three(t_stack **stack);
+int			get_max_position(t_stack *stack);
+t_stack		*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len);
+int			check_sort(t_stack *stack);
+void		push_a_to_b(t_stack **stack_a, t_stack **stack_b);
+void		push_b_to_a(t_stack **stack_a, t_stack **stack_b);
 #endif
