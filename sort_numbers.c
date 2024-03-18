@@ -108,6 +108,8 @@ static void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	int		rot;
 	int		i;
 	int		diff;
+	int		stack_len;
+	float	med;
 	t_stack	*head;
 
 	rot = 0;
@@ -143,13 +145,30 @@ static void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
 		}
 	}
 	*stack_b = head;
-	i = 0;
-	while(i < rot)
+	stack_len = get_stack_len(*stack_b);
+	*stack_b = head;
+	med = (float)stack_len / 2;
+	if (rot == 0)
+		pb(stack_a, stack_b);
+	else if (rot <= med)
 	{
-		rb(stack_b, PRINT);
-		i++;
+		while(rot > 0)
+		{
+			rb(stack_b, PRINT);
+			rot--;
+		}
+		pb(stack_a, stack_b);
 	}
-	pb(stack_a, stack_b);
+	else
+	{
+		i = 0;
+		while (i < (stack_len - rot))
+		{
+			rrb(stack_b, PRINT);
+			i++;
+		}
+		pb(stack_a, stack_b);
+	}
 }
 
 static t_stack	*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len)

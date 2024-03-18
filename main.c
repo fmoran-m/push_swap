@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:19:00 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/15 21:15:48 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/18 18:20:02 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	stack_a = add_index(stack_a, aux_array);
 	free(aux_array);
 	stack_a = sort_numbers(stack_a, stack_b, stack_len);
-	print_stack(stack_a);
+	//print_stack(stack_a);
 	ft_stclear(&stack_a);
 	ft_stclear(&stack_b);
 	return (0);
