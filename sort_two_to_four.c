@@ -6,25 +6,11 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 19:38:36 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/18 19:42:29 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:16:50 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	get_max_position(t_stack *stack)
-{
-	int	max;
-
-	max = INT_MIN;
-	while (stack)
-	{
-		if (stack->pos > max)
-			max = stack->pos;
-		stack = stack->next;
-	}
-	return (max);
-}
 
 void	sort_three(t_stack **stack)
 {

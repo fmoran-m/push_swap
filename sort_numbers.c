@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 19:38:11 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/18 19:50:50 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:47:34 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ int	check_sort(t_stack *stack)
 
 t_stack	*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len)
 {
-	int	current_len;
-	int	i;
+	int		current_len;
+	int		rot;
+	float	med;
 
 	current_len = stack_len - 2;
 	pb(&stack_a, &stack_b);
@@ -46,9 +47,16 @@ t_stack	*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len)
 		push_b_to_a(&stack_a, &stack_b);
 		current_len++;
 	}
-	i = 0;
+	med = (float)stack_len / 2;
+	rot = get_min_to_top(stack_a);
 	while(stack_a->pos != 0)
-		rra(&stack_a, PRINT);
+	{
+		if (rot <= med)
+			ra(&stack_a, PRINT);
+		else
+			rra(&stack_a, PRINT);
+		pa(&stack_a, &stack_b);
+	}
 	return(stack_a);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:12 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/18 19:49:06 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:20:32 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,5 @@ t_stack		*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len);
 int			check_sort(t_stack *stack);
 void		push_a_to_b(t_stack **stack_a, t_stack **stack_b);
 void		push_b_to_a(t_stack **stack_a, t_stack **stack_b);
+int			get_min_to_top(t_stack *stack);
 #endif
