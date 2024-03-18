@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 19:48:05 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/18 19:48:22 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/18 21:05:50 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	push_b_to_a(t_stack **stack_a, t_stack **stack_b)
 	int		rot;
 	int		i;
 	int		diff;
+	int		stack_len;
+	float	med;
 	t_stack	*head;
 
 	rot = 0;
@@ -49,13 +51,30 @@ void	push_b_to_a(t_stack **stack_a, t_stack **stack_b)
 		}
 	}
 	*stack_a = head;
-	i = 0;
-	while(i < rot)
+	stack_len = get_stack_len(*stack_a);
+	*stack_a = head;
+	med = (float)stack_len / 2;
+	if (rot == 0)
+		pa(stack_a, stack_b);
+	else if (rot <= med)
 	{
-		ra(stack_a, PRINT);
-		i++;
+		while(rot > 0)
+		{
+			ra(stack_a, PRINT);
+			rot--;
+		}
+		pa(stack_a, stack_b);
 	}
-	pa(stack_a, stack_b);
+	else
+	{
+		i = 0;
+		while (i < (stack_len - rot))
+		{
+			rra(stack_a, PRINT);
+			i++;
+		}
+		pa(stack_a, stack_b);
+	}
 }
 
 void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
