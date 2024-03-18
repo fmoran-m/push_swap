@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:12 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/18 20:20:32 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/18 22:33:24 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft/libft.h"
 typedef struct s_stack
 {
+	int				obj_node;
 	int				num;
 	int				pos;
 	struct s_stack	*next;
@@ -53,4 +54,5 @@ int			check_sort(t_stack *stack);
 void		push_a_to_b(t_stack **stack_a, t_stack **stack_b);
 void		push_b_to_a(t_stack **stack_a, t_stack **stack_b);
 int			get_min_to_top(t_stack *stack);
+t_stack		*get_obj_node(t_stack *stack_a, t_stack *stack_b);
 #endif

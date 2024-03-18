@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 19:38:11 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/18 20:47:34 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/18 22:33:31 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ t_stack	*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len)
 	pb(&stack_a, &stack_b);
 	while(current_len > 3)
 	{
+		stack_a = get_obj_node(stack_a, stack_b);
+		//stack_a = get_cheaper_num(&stack_a, &stack_b);
 		push_a_to_b(&stack_a, &stack_b);
 		current_len--;
 	}
