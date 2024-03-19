@@ -17,10 +17,11 @@
 # include "libft/libft.h"
 typedef struct s_stack
 {
-	int				obj_node;
 	int				num;
 	int				pos;
+	int				moves;
 	struct s_stack	*next;
+	struct s_stack	*obj_node;
 }				t_stack;
 t_stack		*stack_init(char *argv);
 t_stack		*ft_stnew(int content);
@@ -55,4 +56,5 @@ void		push_a_to_b(t_stack **stack_a, t_stack **stack_b);
 void		push_b_to_a(t_stack **stack_a, t_stack **stack_b);
 int			get_min_to_top(t_stack *stack);
 t_stack		*get_obj_node(t_stack *stack_a, t_stack *stack_b);
+t_stack		*get_cheaper_num(t_stack *stack_a, t_stack *stack_b);
 #endif

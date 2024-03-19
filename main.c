@@ -25,7 +25,7 @@ static void	print_stack(t_stack *stack_a)
 {
 	while(stack_a)
 	{
-		printf("Number: %d, index: %d\n", stack_a->num, stack_a->pos);
+		printf("Number: %d, moves: %d\n", stack_a->num, stack_a->moves);
 		stack_a = stack_a->next;
 	}
 }
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	stack_a = add_index(stack_a, aux_array);
 	free(aux_array);
 	stack_a = sort_numbers(stack_a, stack_b, stack_len);
-//	print_stack(stack_a);
+	print_stack(stack_a);
 	ft_stclear(&stack_a);
 	ft_stclear(&stack_b);
 	return (0);

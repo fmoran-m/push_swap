@@ -36,13 +36,14 @@ t_stack	*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len)
 	current_len = stack_len - 2;
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
-	while(current_len > 3)
-	{
+	//while(current_len > 3)
+	//{
 		stack_a = get_obj_node(stack_a, stack_b);
-		//stack_a = get_cheaper_num(&stack_a, &stack_b);
-		push_a_to_b(&stack_a, &stack_b);
-		current_len--;
-	}
+		stack_a = get_cheaper_num(stack_a, stack_b);
+		//push_a_to_b(&stack_a, &stack_b);
+		//current_len--;
+	//}
+	/*
 	sort_three(&stack_a);
 	while(current_len < stack_len)
 	{
@@ -59,6 +60,7 @@ t_stack	*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len)
 			rra(&stack_a, PRINT);
 		pa(&stack_a, &stack_b);
 	}
+	*/
 	return(stack_a);
 }
 
