@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:12 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/18 22:33:24 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/20 19:48:59 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ void		rra(t_stack **stack_a, int print_flag);
 void		rrb(t_stack **stack_b, int print_flag);
 void		rrr(t_stack **stack_a, t_stack **stack_b);
 t_stack		*sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len);
-int			*bubblesort(t_stack *stack_a, int stack_len);
 int			get_stack_len(t_stack *stack);
-int			get_index(int num, int *array);
-t_stack		*add_index(t_stack *stack, int *aux_array);
+t_stack		*add_index(t_stack *stack, int stack_len);
 t_stack		*sort_two_to_four(t_stack *stack_a, t_stack *stack_b, int stack_len);
 void		sort_three(t_stack **stack);
 int			get_max_position(t_stack *stack);

@@ -1,24 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add_index.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/20 19:41:22 by fmoran-m          #+#    #+#             */
+/*   Updated: 2024/03/20 19:54:15 by fmoran-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	get_index(int num, int *array)
+static int	get_index(t_stack *stack, int stack_len)
 {
-	int	i;
+	int index;
+	int	reference;
 
-	i = 0;
-	while(num != array[i])
-		i++;
-	return (i);
-}
-
-t_stack	*add_index(t_stack *stack, int *aux_array)
-{
-	t_stack *head;
-
-	head = stack;
+	index = stack_len - 1;
+	reference = stack->num;
 	while(stack)
 	{
-		stack->pos = get_index(stack->num, aux_array);
+		if (stack->num > reference)
+			index--;
 		stack = stack->next;
 	}
-	return (head);
+	return (index);
+}
+
+t_stack	*add_index(t_stack *stack, int stack_len)
+{
+	int	counter;
+
+	counter = 0;
+	while(counter < stack_len)
+	{
+		stack->pos = get_index(stack, stack_len);
+		ra(&stack, NO_PRINT);
+		counter++;
+	}
+	return (stack);
 }

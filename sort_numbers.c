@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 19:38:11 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/18 22:33:31 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/20 19:32:41 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ t_stack	*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len)
 
 t_stack	*sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len)
 {
-	if (check_sort(stack_a))
-		return(stack_a);
-	if (stack_len < 5)
-		stack_a = sort_two_to_four(stack_a, stack_b, stack_len);
-	else
+	if (check_sort(stack_a)) //
+		return(stack_a); //
+	if (stack_len < 5) //
+		stack_a = sort_two_to_four(stack_a, stack_b, stack_len); //HASTA AQUÍ NOS QUEDEMOS EN ESTE DOCUMENTO
+	else 
 		stack_a = turk_algorithm(stack_a, stack_b, stack_len);
 	return(stack_a);
 }	

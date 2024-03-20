@@ -6,7 +6,7 @@
 #    By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 16:57:26 by fmoran-m          #+#    #+#              #
-#    Updated: 2024/03/20 18:33:17 by fmoran-m         ###   ########.fr        #
+#    Updated: 2024/03/20 19:22:01 by fmoran-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ INCLUDES = push_swap.h
 
 RM = rm -f
 
-SRC = main.c stack_init.c stack_functions.c push_swap_utils.c push_swap_functions.c push_swap_functions_2.c sort_numbers.c sort_array.c add_index.c sort_two_to_four.c push_stacks.c turk_functions.c
+SRC = main.c stack_init.c stack_functions.c push_swap_utils.c push_swap_functions.c push_swap_functions_2.c sort_numbers.c add_index.c sort_two_to_four.c push_stacks.c turk_functions.c
 
 OBJS = ${SRC:.c=.o}
 
