@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 22:16:57 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/18 22:34:05 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:27:21 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ static t_stack	*get_bigger_node(t_stack *stack_b)
 	while(stack_b)
 	{
 		if (stack_b->pos > max)
+		{
 			bigger_node = stack_b;
+			max = stack_b->pos;
+		}
 		stack_b = stack_b->next;
 	}
 	return(bigger_node);
