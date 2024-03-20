@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:19:00 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/20 18:26:37 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:33:42 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	control_argc(int argc)
 		exit(1);
 	}
 }
-
+/*
 static void	print_stack(t_stack *stack_a)
 {
 	while(stack_a)
@@ -29,7 +29,7 @@ static void	print_stack(t_stack *stack_a)
 		stack_a = stack_a->next;
 	}
 }
-
+*/
 int main(int argc, char **argv)
 {
 	t_stack	*stack_a;

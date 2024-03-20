@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 19:48:05 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/18 21:05:50 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:34:03 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void	push_b_to_a(t_stack **stack_a, t_stack **stack_b)
 
 t_stack	*get_selected_node(t_stack *stack_a)
 {
-	int		min;
 	t_stack	*selected;
 
 	selected = stack_a;
