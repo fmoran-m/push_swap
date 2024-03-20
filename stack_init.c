@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 18:39:01 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/12 17:48:50 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/20 20:47:03 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,7 @@ static void	control_digits(char **numbers)
 		while(numbers[i][j])
 		{
 			if (!ft_isdigit(numbers[i][j]))
-			{
-				ft_putendl_fd("Error", 2);
-				ft_free_matrix(numbers);
-				exit(1);
-			}
+				free_and_exit(NULL, numbers);
 			j++;
 		}
 		i++;
@@ -39,61 +35,48 @@ static void	control_digits(char **numbers)
 
 static void	check_repeat(int num, char **numbers, t_stack *stack)
 {
+	t_stack	*head;
+
+	head = stack;
 	while(stack)
 	{
 		if (num == stack->num)
-		{
-			ft_putendl_fd("Error", 2);
-			ft_free_matrix(numbers);
-			ft_stclear(&stack);
-			exit(1);
-		}
+			free_and_exit(head, numbers);
 		stack = stack->next;
 	}
 }
 
-static int	check_max_int(long long num, char **numbers, t_stack *stack)
+static void	check_max_int(long long num, char **numbers, t_stack *stack)
 {
 	if (num > INT_MAX || num < INT_MIN)
-	{
-		ft_putendl_fd("Error", 2);
-		ft_free_matrix(numbers);
-		ft_stclear(&stack);
-		return (0);
-	}
-	else
-		return (1);
+		free_and_exit(stack, numbers);
 }
 
 static void	check_empty_string(char *argv)
 {
 	int	i;
 
+	if (!*argv)
+		free_and_exit(NULL, NULL);
 	i = 0;
 	while(argv[i] == ' ')
 		i++;
 	if (argv[i] == 0)
-	{
-		ft_putendl_fd("Error", 2);
-		exit(1);
-	}
+		free_and_exit(NULL, NULL);
 }
 
 static t_stack	*create_stack(char **numbers)
 {
-	int			i;
 	long long	num;
 	t_stack		*node;
 	t_stack		*head;
+	int			i;
 
 	i = 0;
 	num = ft_long_atoi(numbers[i]);
 	node = ft_stnew(num);
 	if (!node)
-	{
-		ft_free_matrix(numbers);
-		exit(1);
-	}
+		free_and_exit(NULL, numbers);
 	check_max_int(num, numbers, node);
 	head = node;
 	i++;
@@ -104,12 +87,7 @@ static t_stack	*create_stack(char **numbers)
 		check_repeat(num, numbers, head);
 		node = ft_stnew(num);
 		if (!node)
-		{
-			ft_putendl_fd("Error", 2);
-			ft_free_matrix(numbers);
-			ft_stclear(&head);
-			exit(1);
-		}
+			free_and_exit(head, numbers);
 		ft_stadd_back(&head, node);
 		i++;
 	}
@@ -121,15 +99,11 @@ t_stack	*stack_init(char *argv)
 	char	**numbers;
 	t_stack	*stack_a;
 
-	if (!*argv)
-	{
-		ft_putendl_fd("Error", 2);
-		exit(1);
-	}
+	
 	check_empty_string(argv);
 	numbers = ft_split(argv, ' ');
 	if (!numbers)
-		exit(1);
+		free_and_exit(NULL, NULL);
 	control_digits(numbers);
 	stack_a = create_stack(numbers);
 	ft_free_matrix(numbers);

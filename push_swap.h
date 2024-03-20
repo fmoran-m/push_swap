@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:12 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/20 19:48:59 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/20 20:45:58 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ void		push_b_to_a(t_stack **stack_a, t_stack **stack_b);
 int			get_min_to_top(t_stack *stack);
 t_stack		*get_obj_node(t_stack *stack_a, t_stack *stack_b);
 t_stack		*get_cheaper_num(t_stack *stack_a, t_stack *stack_b);
+void		free_and_exit(t_stack *stack, char **matrix);
 #endif
