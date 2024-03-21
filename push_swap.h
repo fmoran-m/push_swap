@@ -19,10 +19,24 @@ typedef struct s_stack
 {
 	int				num;
 	int				pos;
-	int				moves;
+	int				movs;
 	struct s_stack	*next;
 	struct s_stack	*obj_node;
 }				t_stack;
+typedef struct s_movs
+{
+	int		total_movs;
+	int		stack_len_a;
+	int		stack_len_b;
+	int		med_movs_a;
+	int		med_movs_b;
+	int		rev_flag_a;
+	int		rev_flag_b;
+	int		movs_a;
+	int		movs_b;
+	float	med_a;
+	float	med_b;
+}				t_movs;
 t_stack		*stack_init(char *argv);
 t_stack		*ft_stnew(int content);
 t_stack		*ft_stlast(t_stack *st);
@@ -62,4 +76,10 @@ void		check_repeat(int num, char **numbers, t_stack *stack);
 void		control_digits(char **numbers);
 t_stack		*create_stack(char **numbers);
 int			sort_stack_b(t_stack **stack_a, t_stack **stack_b, int current_len);
+int			get_movs(int movs_a, int movs_b, int stack_len_a, int stack_len_b);
+t_movs		movs_init(int movs_a, int movs_b, int stack_len_a, int stack_len_b);
+int			both_below_median(t_movs movs);
+int			both_above_median(t_movs movs);
+int			a_above_median(t_movs movs);
+int			b_above_median(t_movs movs);
 #endif

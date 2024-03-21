@@ -26,7 +26,7 @@ INCLUDES = push_swap.h
 
 RM = rm -f
 
-SRC = main.c stack_init.c stack_functions.c push_swap_utils.c push_swap_functions.c push_swap_functions_2.c sort_numbers.c add_index.c sort_two_to_four.c push_stacks.c turk_functions.c exit_functions.c checks.c
+SRC = main.c stack_init.c stack_functions.c push_swap_utils.c push_swap_functions.c push_swap_functions_2.c sort_numbers.c add_index.c sort_two_to_four.c turk_functions.c exit_functions.c checks.c get_movements.c possible_movements.c push_a_to_b.c push_b_to_a.c
 
 OBJS = ${SRC:.c=.o}
 
