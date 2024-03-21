@@ -31,33 +31,34 @@ static t_stack	*get_bigger_node(t_stack *stack_b)
 	return(bigger_node);
 }
 
-t_stack	*get_obj_node(t_stack *stack_a, t_stack *stack_b)
+void	get_obj_node(t_stack **stack_a, t_stack **stack_b)
 {
 	int		diff;
 	t_stack	*head_a;
 	t_stack	*head_b;
 
-	head_a = stack_a;
-	head_b = stack_b;
-	while(stack_a)
+	head_a = *stack_a;
+	head_b = *stack_b;
+	while(*stack_a)
 	{
 		diff = INT_MIN;
-		stack_b = head_b;
-		while(stack_b)
+		*stack_b = head_b;
+		while(*stack_b)
 		{
-			if ((stack_a->pos > stack_b->pos)
-				&& ((stack_b->pos - stack_a->pos) > diff))
+			if (((*stack_a)->pos > (*stack_b)->pos)
+				&& (((*stack_b)->pos - (*stack_a)->pos) > diff))
 			{
-				stack_a->obj_node = stack_b;
-				diff = stack_b->pos - stack_a->pos;
+				(*stack_a)->obj_node = *stack_b;
+				diff = (*stack_b)->pos - (*stack_a)->pos;
 			}
-			stack_b = stack_b->next;
+			*stack_b = (*stack_b)->next;
 		}
 		if (diff == INT_MIN)
-			stack_a->obj_node = get_bigger_node(head_b);
-		stack_a = stack_a->next;
+			(*stack_a)->obj_node = get_bigger_node(head_b);
+		*stack_a = (*stack_a)->next;
 	}
-	return(head_a);
+	*stack_a = head_a;
+	*stack_b = head_b;
 }
 
 static int	get_moves(int moves_a, int moves_b, int stack_len_a, int stack_len_b)
@@ -110,7 +111,7 @@ static int	get_moves(int moves_a, int moves_b, int stack_len_a, int stack_len_b)
 		return(total_moves);
 }
 
-t_stack *get_cheaper_num(t_stack *stack_a, t_stack *stack_b)
+void	get_cheaper_num(t_stack **stack_a, t_stack **stack_b)
 {
 	int		stack_len_a;
 	int		stack_len_b;
@@ -119,23 +120,24 @@ t_stack *get_cheaper_num(t_stack *stack_a, t_stack *stack_b)
 	t_stack	*head_a;
 	t_stack	*head_b;
 
-	head_a = stack_a;
-	head_b = stack_b;
-	stack_len_a = get_stack_len(stack_a);
-	stack_len_b = get_stack_len(stack_b);
+	head_a = *stack_a;
+	head_b = *stack_b;
+	stack_len_a = get_stack_len(*stack_a);
+	stack_len_b = get_stack_len(*stack_b);
 	moves_a = 0;
-	while(stack_a)
+	while(*stack_a)
 	{
 		moves_b = 0;
-		stack_b = head_b;
-		while (stack_a->obj_node != stack_b)
+		*stack_b = head_b;
+		while ((*stack_a)->obj_node != *stack_b)
 		{
 			moves_b++;
-			stack_b = stack_b->next;
+			*stack_b = (*stack_b)->next;
 		}
-		stack_a->moves = get_moves(moves_a, moves_b, stack_len_a, stack_len_b);
+		(*stack_a)->moves = get_moves(moves_a, moves_b, stack_len_a, stack_len_b);
 		moves_a++;
-		stack_a = stack_a->next;
+		*stack_a = (*stack_a)->next;
 	}
-	return(head_a);
+	*stack_a = head_a;
+	*stack_b = head_b;
 }
