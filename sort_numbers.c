@@ -29,10 +29,19 @@ int	check_sort(t_stack *stack)
 
 int	sort_stack_b(t_stack **stack_a, t_stack **stack_b, int current_len)
 {
+	t_stack *head_a;
+	t_stack *head_b;
+
 	while(current_len > 3)
 	{
+		head_a = *stack_a;
+		head_b = *stack_b;
 		get_obj_node(stack_a, stack_b);
+		*stack_a = head_a;
+		*stack_b = head_b;
 		get_cheaper_num(stack_a, stack_b);
+		*stack_a = head_a;
+		*stack_b = head_b;
 		push_a_to_b(stack_a, stack_b);
 		current_len--;
 	}

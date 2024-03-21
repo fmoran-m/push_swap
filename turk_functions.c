@@ -34,10 +34,8 @@ static t_stack	*get_bigger_node(t_stack *stack_b)
 void	get_obj_node(t_stack **stack_a, t_stack **stack_b)
 {
 	int		diff;
-	t_stack	*head_a;
 	t_stack	*head_b;
 
-	head_a = *stack_a;
 	head_b = *stack_b;
 	while(*stack_a)
 	{
@@ -57,8 +55,6 @@ void	get_obj_node(t_stack **stack_a, t_stack **stack_b)
 			(*stack_a)->obj_node = get_bigger_node(head_b);
 		*stack_a = (*stack_a)->next;
 	}
-	*stack_a = head_a;
-	*stack_b = head_b;
 }
 
 static int	get_moves(int moves_a, int moves_b, int stack_len_a, int stack_len_b)
@@ -117,10 +113,8 @@ void	get_cheaper_num(t_stack **stack_a, t_stack **stack_b)
 	int		stack_len_b;
 	int		moves_a;
 	int		moves_b;
-	t_stack	*head_a;
 	t_stack	*head_b;
 
-	head_a = *stack_a;
 	head_b = *stack_b;
 	stack_len_a = get_stack_len(*stack_a);
 	stack_len_b = get_stack_len(*stack_b);
@@ -138,6 +132,4 @@ void	get_cheaper_num(t_stack **stack_a, t_stack **stack_b)
 		moves_a++;
 		*stack_a = (*stack_a)->next;
 	}
-	*stack_a = head_a;
-	*stack_b = head_b;
 }
