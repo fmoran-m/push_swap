@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:07:12 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/20 21:35:01 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/22 22:31:47 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_movs
 	float	med_a;
 	float	med_b;
 }				t_movs;
-t_stack		*stack_init(char *argv);
+t_stack		*stack_init(char *argv, int argv_flag);
 t_stack		*ft_stnew(int content);
 t_stack		*ft_stlast(t_stack *st);
 void		ft_stadd_back(t_stack **st, t_stack *new);

@@ -6,19 +6,23 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:19:00 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/20 21:23:05 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/22 22:33:34 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	control_argc(int argc)
+static int	control_argc(int argc)
 {
-	if (argc != 2)
+	if (argc < 2)
 	{
 		ft_putendl_fd("Error", 2);
 		exit(1);
 	}
+	else if (argc == 2)
+		return(1);
+	else
+		return(0);
 }
 
 /*
@@ -37,9 +41,10 @@ int main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		stack_len;
+	int		argv_flag;
 
-	control_argc(argc);
-	stack_a = stack_init(argv[1]);
+	argv_flag = control_argc(argc);
+	stack_a = stack_init(argv[1], argv_flag);
 	stack_b = NULL;
 	stack_len = get_stack_len(stack_a);
 	stack_a = add_index(stack_a, stack_len);
