@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 18:39:01 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/22 22:33:20 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/23 16:01:24 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,18 @@ static char	**allocate_matrix(char **argv, int argc)
 	return(matrix);
 }
 
+static void check_all_empty(char **argv, int argc)
+{
+	int i;
+
+	i = 1;
+	while(i < argc)
+	{
+		check_empty_string(argv[i]);
+		i++;
+	}
+}
+
 t_stack	*stack_init(char **argv, int argc, int argv_flag)
 {
 	char	**numbers;
@@ -96,7 +108,10 @@ t_stack	*stack_init(char **argv, int argc, int argv_flag)
 			free_and_exit(NULL, NULL);
 	}
 	else
+	{
+		check_all_empty(argv, argc);
 		numbers = allocate_matrix(argv, argc);
+	}
 	control_digits(numbers);
 	stack_a = create_stack(numbers);
 	ft_free_matrix(numbers);
