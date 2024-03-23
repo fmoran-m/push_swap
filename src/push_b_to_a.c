@@ -6,11 +6,11 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 22:18:30 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/22 22:18:32 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/23 17:05:10 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	get_rotations_for_min(t_stack **stack_a)
 {

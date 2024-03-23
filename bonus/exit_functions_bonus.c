@@ -6,11 +6,11 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 20:21:35 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/20 21:24:26 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/23 17:05:10 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	free_and_exit(t_stack *stack, char **matrix)
 {

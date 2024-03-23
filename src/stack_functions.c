@@ -6,11 +6,11 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 18:38:51 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/12 17:36:31 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/23 17:05:10 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_stack	*ft_stnew(int num)
 {

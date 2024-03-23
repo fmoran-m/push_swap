@@ -6,11 +6,11 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:41:22 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/20 19:54:15 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/23 17:05:10 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	get_index(t_stack *stack, int stack_len)
 {
