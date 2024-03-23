@@ -20,7 +20,7 @@ CC = cc
 
 LM = make bonus -C
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 INCLUDES = push_swap.h
 

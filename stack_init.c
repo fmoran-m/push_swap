@@ -41,7 +41,49 @@ t_stack	*create_stack(char **numbers)
 	return (head);
 }
 
-t_stack	*stack_init(char **argv, int argv_flag)
+static char	**res_mem(char **argv, int argc)
+{
+	char	**matrix;
+	int		i;
+
+	i = 0;
+	matrix = malloc(argc * sizeof(char *));
+	if (!matrix)
+		free_and_exit(NULL, NULL);
+	while(i < argc - 1)
+	{
+		matrix[i] = ft_calloc(ft_strlen(argv[i + 1]) + 1, sizeof(char));
+		if (!matrix[i])
+			free_uncomplete_matrix(matrix, i);
+		i++;
+	}
+	matrix[i] = NULL;
+	return(matrix);
+}
+
+static char	**allocate_matrix(char **argv, int argc)
+{
+	char	**matrix;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	matrix = res_mem(argv, argc);
+	while(matrix[i])
+	{
+		j = 0;
+		while (argv[i + 1][j])
+		{
+			matrix[i][j] = argv[i + 1][j];
+			j++;
+		}
+		i++;
+	}
+	return(matrix);
+}
+
+t_stack	*stack_init(char **argv, int argc, int argv_flag)
 {
 	char	**numbers;
 	t_stack	*stack_a;
@@ -54,7 +96,7 @@ t_stack	*stack_init(char **argv, int argv_flag)
 			free_and_exit(NULL, NULL);
 	}
 	else
-		numbers = argv;
+		numbers = allocate_matrix(argv, argc);
 	control_digits(numbers);
 	stack_a = create_stack(numbers);
 	ft_free_matrix(numbers);

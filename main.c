@@ -44,10 +44,11 @@ int main(int argc, char **argv)
 	int		argv_flag;
 
 	argv_flag = control_argc(argc);
-	stack_a = stack_init(argv[1], argv_flag);
+	stack_a = stack_init(argv, argc, argv_flag);
 	stack_b = NULL;
 	stack_len = get_stack_len(stack_a);
-	stack_a = add_index(stack_a, stack_len);
+	if (get_stack_len(stack_a) > 1)
+		stack_a = add_index(stack_a, stack_len);
 	stack_a = sort_numbers(stack_a, stack_b, stack_len);
 	ft_stclear(&stack_a);
 	ft_stclear(&stack_b);

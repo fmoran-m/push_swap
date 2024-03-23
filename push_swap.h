@@ -37,7 +37,7 @@ typedef struct s_movs
 	float	med_a;
 	float	med_b;
 }				t_movs;
-t_stack		*stack_init(char *argv, int argv_flag);
+t_stack		*stack_init(char **argv, int argc, int argv_flag);
 t_stack		*ft_stnew(int content);
 t_stack		*ft_stlast(t_stack *st);
 void		ft_stadd_back(t_stack **st, t_stack *new);
@@ -82,4 +82,5 @@ int			both_below_median(t_movs movs);
 int			both_above_median(t_movs movs);
 int			a_above_median(t_movs movs);
 int			b_above_median(t_movs movs);
+void		free_uncomplete_matrix(char **matrix, int current_ind);
 #endif

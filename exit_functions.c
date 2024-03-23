@@ -21,3 +21,18 @@ void	free_and_exit(t_stack *stack, char **matrix)
 	ft_putendl_fd("Error", 2);
 	exit(1);
 }
+
+void	free_uncomplete_matrix(char **matrix, int current_ind)
+{
+	int	i;
+
+	i = 0;
+	while (i < current_ind)
+	{
+		free(matrix[i]);
+		i++;
+	}
+	free(matrix);
+	ft_putendl_fd("Error", 2);
+	exit(1);
+}
