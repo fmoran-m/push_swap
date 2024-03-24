@@ -16,11 +16,12 @@ static int	check_sort(t_stack *stack)
 {
 	int	temp;
 
+	temp = stack->num;
 	while(stack)
 	{
-		temp = stack->num;
 		if (temp > stack->num)
 			return (0);
+		temp = stack->num;
 		stack = stack->next;
 	}
 	return (1);
