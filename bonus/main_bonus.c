@@ -16,15 +16,12 @@ static int	check_sort(t_stack *stack)
 {
 	int	temp;
 
-	temp = 0;
-	if (get_stack_len(stack) == 1)
-		return(1);
 	while(stack)
 	{
-		if (temp != stack->pos)
+		temp = stack->num;
+		if (temp > stack->num)
 			return (0);
 		stack = stack->next;
-		temp++;
 	}
 	return (1);
 }
@@ -72,7 +69,7 @@ static void	apply_input(char *str, t_stack **stack_a, t_stack **stack_b)
 		ft_stclear(stack_a);
 		ft_stclear(stack_b);
 		free(str);
-		exit(1);//LIBERAR
+		exit(1);
 	}
 }
 
@@ -98,5 +95,7 @@ int main(int argc, char **argv)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	ft_stclear(&stack_a);
+	ft_stclear(&stack_b);
 	return (0);
 }
