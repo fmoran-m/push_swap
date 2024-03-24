@@ -14,7 +14,8 @@
 # define PUSH_SWAP_BONUS_H
 
 #include "libft/libft.h"
-
+# define PRINT		1
+# define NO_PRINT	0
 typedef	struct s_stack
 {
 	int				num;

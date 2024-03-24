@@ -72,5 +72,4 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	*stack_a = *stack_b;
 	*stack_b = (*stack_b)->next;
 	(*stack_a)->next = temp;
-	ft_printf("pa\n");
 }

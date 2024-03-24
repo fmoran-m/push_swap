@@ -27,27 +27,27 @@ static int	control_argc(int argc)
 
 static void	check_input(char *str, t_stack **stack_a, t_stack **stack_b)
 {
-	if (ft_strcmp("sa\n", str))
+	if (!ft_strcmp("sa\n", str))
 		sa(stack_a, NO_PRINT);
-	else if (ft_strcmp("sb\n", str))
+	else if (!ft_strcmp("sb\n", str))
 		sb(stack_b, NO_PRINT);
-	else if (ft_strcmp("ss\n", str))
+	else if (!ft_strcmp("ss\n", str))
 		ss(stack_a, stack_b);
-	else if (ft_strcmp("pa\n", str))
+	else if (!ft_strcmp("pa\n", str))
 		pa(stack_a, stack_b);
-	else if (ft_strcmp("pb\n", str))
+	else if (!ft_strcmp("pb\n", str))
 		pb(stack_a, stack_b);
-	else if (ft_strcmp("ra\n"))
+	else if (!ft_strcmp("ra\n", str))
 		ra(stack_a, NO_PRINT);
-	else if (ft_strcmp("rb\n"))
+	else if (!ft_strcmp("rb\n", str))
 		rb(stack_b, NO_PRINT);
-	else if (ft_strcmp("rr\n"))
+	else if (!ft_strcmp("rr\n", str))
 		rr(stack_a, stack_b);
-	else if (ft_strcmp("rra\n"))
+	else if (!ft_strcmp("rra\n", str))
 		rra(stack_a, NO_PRINT);
-	else if(ft_strcmp(stack_b, NO_PRINT))
-		rrb(stack_a, NO_PRINT);
-	else if(ft_strcmp(stack_a, stack_b))
+	else if(!ft_strcmp("rrb\n", str))
+		rrb(stack_b, NO_PRINT);
+	else if(!ft_strcmp("rrr\n", str))
 		rrr(stack_a, stack_b);
 	else
 		exit(1);//LIBERAR
@@ -63,11 +63,12 @@ int main(int argc, char **argv)
 	argv_flag = control_argc(argc);
 	stack_a = stack_init(argv, argc, argv_flag);
 	stack_b = NULL;
-	while(1)
+	str = get_next_line(0);
+	while(str)
 	{
-		str = get_next_line(0);
 		check_input(str, &stack_a, &stack_b);
 		free(str);
+		str = get_next_line(0);
 	}
 	return (0);
 }

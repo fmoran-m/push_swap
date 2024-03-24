@@ -34,7 +34,7 @@ SRC = src/main.c src/stack_init.c src/stack_functions.c src/push_swap_utils.c sr
 
 OBJS = ${SRC:.c=.o}
 
-BONUS_SRC = bonus/main_bonus.c bonus/checks_bonus.c bonus/push_swap_utils_bonus.c bonus/stack_functions_bonus.c bonus/stack_init_bonus.c bonus/exit_functions_bonus.c bonus/push_swap_functions_2.c bonus/push_swap_bonus_2.c
+BONUS_SRC = bonus/main_bonus.c bonus/checks_bonus.c bonus/push_swap_utils_bonus.c bonus/stack_functions_bonus.c bonus/stack_init_bonus.c bonus/exit_functions_bonus.c bonus/push_swap_functions_2_bonus.c bonus/push_swap_functions_bonus.c
 
 BONUS_OBJS = ${BONUS_SRC:.c=.o}
 
