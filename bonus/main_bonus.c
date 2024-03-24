@@ -12,6 +12,23 @@
 
 #include "../push_swap_bonus.h"
 
+static int	check_sort(t_stack *stack)
+{
+	int	temp;
+
+	temp = 0;
+	if (get_stack_len(stack) == 1)
+		return(1);
+	while(stack)
+	{
+		if (temp != stack->pos)
+			return (0);
+		stack = stack->next;
+		temp++;
+	}
+	return (1);
+}
+
 static int	control_argc(int argc)
 {
 	if (argc < 2)
@@ -25,7 +42,7 @@ static int	control_argc(int argc)
 		return(0);
 }
 
-static void	check_input(char *str, t_stack **stack_a, t_stack **stack_b)
+static void	apply_input(char *str, t_stack **stack_a, t_stack **stack_b)
 {
 	if (!ft_strcmp("sa\n", str))
 		sa(stack_a, NO_PRINT);
@@ -50,7 +67,13 @@ static void	check_input(char *str, t_stack **stack_a, t_stack **stack_b)
 	else if(!ft_strcmp("rrr\n", str))
 		rrr(stack_a, stack_b);
 	else
+	{
+		ft_printf("Error\n");
+		ft_stclear(stack_a);
+		ft_stclear(stack_b);
+		free(str);
 		exit(1);//LIBERAR
+	}
 }
 
 int main(int argc, char **argv)
@@ -66,9 +89,14 @@ int main(int argc, char **argv)
 	str = get_next_line(0);
 	while(str)
 	{
-		check_input(str, &stack_a, &stack_b);
+		apply_input(str, &stack_a, &stack_b);
 		free(str);
 		str = get_next_line(0);
 	}
+	free(str);
+	if (check_sort(stack_a) && stack_b == NULL)
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 	return (0);
 }

@@ -19,6 +19,8 @@ void	sa(t_stack **stack_a, int print_flag)
 
 	if (!*stack_a)
 		return;
+	if(get_stack_len(*stack_a) <= 1)
+		return;
 	temp = *stack_a;
 	*stack_a = (*stack_a)->next;
 	temp2 = (*stack_a)->next;
@@ -34,6 +36,8 @@ void	sb(t_stack **stack_b, int print_flag)
 	t_stack *temp2;
 
 	if (!*stack_b)
+		return;
+	if(get_stack_len(*stack_b) <= 1)
 		return;
 	temp = *stack_b;
 	*stack_b = (*stack_b)->next;

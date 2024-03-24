@@ -19,6 +19,8 @@ void	ra(t_stack **stack_a, int print_flag)
 
 	if(!*stack_a)
 		return;
+	if(get_stack_len(*stack_a) <= 1)
+		return;
 	temp = *stack_a;
 	*stack_a = (*stack_a)->next;
 	temp->next = NULL;
@@ -37,6 +39,8 @@ void	rb(t_stack **stack_b, int print_flag)
 	t_stack	*temp2;
 
 	if(!*stack_b)
+		return;
+	if(get_stack_len(*stack_b) <= 1)
 		return;
 	temp = *stack_b;
 	*stack_b = (*stack_b)->next;
@@ -63,6 +67,8 @@ void	rra(t_stack **stack_a, int print_flag)
 
 	if (!*stack_a)
 		return;
+	if(get_stack_len(*stack_a) <= 1)
+		return;
 	head = *stack_a;
 	while((*stack_a)->next != NULL)
 	{
@@ -81,6 +87,8 @@ void	rrb(t_stack **stack_b, int print_flag)
 	t_stack	*head;
 
 	if (!*stack_b)
+		return;
+	if(get_stack_len(*stack_b) <= 1)
 		return;
 	head = *stack_b;
 	while((*stack_b)->next != NULL)
