@@ -20,7 +20,7 @@ LIBFTDIR = ./libft
 
 CC = cc
 
-LM = make -C
+LM = make -s -C
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -38,26 +38,26 @@ BONUS_SRC = bonus/main_bonus.c bonus/checks_bonus.c bonus/push_swap_utils_bonus.
 
 BONUS_OBJS = ${BONUS_SRC:.c=.o}
 
-%.o:%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+all: $(NAME)
 
 $(NAME): $(OBJS) $(INCLUDES)
-		$(LM) $(LIBFTDIR)
+		@$(LM) $(LIBFTDIR)
 		$(CC) -o $(NAME) $(CFLAGS) $(OBJS) $(LIBFT)
+
+%.o:%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 bonus: $(BONUS_OBJS) $(BONUS_INCLUDES)
 		$(LM) $(LIBFTDIR)
 		$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $(NAME_BONUS)
 
-all: $(NAME)
-
 clean:
-		$(RM) $(OBJS) $(BONUS_OBJS)
-		cd $(LIBFTDIR) && make clean
+		@$(RM) $(OBJS) $(BONUS_OBJS)
+		@$(LM) $(LIBFTDIR) fclean
 
 fclean: clean
-		$(RM) $(NAME) $(NAME_BONUS)
-		cd $(LIBFTDIR) && make fclean
+		@$(RM) $(NAME) $(NAME_BONUS)
+		@$(LM) $(LIBFTDIR) fclean
 
 re: fclean all
 
