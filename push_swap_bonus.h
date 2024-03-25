@@ -10,13 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_BONUS_H
+#ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 
-#include "libft/libft.h"
+# include "libft/libft.h"
 # define PRINT		1
 # define NO_PRINT	0
-typedef	struct s_stack
+
+typedef struct s_stack
 {
 	int				num;
 	int				pos;
@@ -28,8 +29,6 @@ void		control_digits(char **numbers);
 void		check_repeat(int num, char **numbers, t_stack *stack);
 void		check_max_int(long long num, char **numbers, t_stack *stack);
 void		check_empty_string(char *argv);
-t_stack		*create_stack(char **numbers);
-t_stack		*stack_init(char **argv, int argc, int argv_flag);
 long long	ft_long_atoi(const char *str);
 int			get_stack_len(t_stack *stack);
 t_stack		*ft_stnew(int num);
@@ -55,4 +54,5 @@ void		exit_gnl(t_stack **stack_a, t_stack **stack_b, char *str);
 void		apply_input(char *str, t_stack **stack_a, t_stack **stack_b);
 int			control_argc(int argc);
 int			check_sort(t_stack *stack);
+t_stack		*stack_init(char **argv, int argc, int argv_flag);
 #endif

@@ -20,12 +20,12 @@ static int	control_argc(int argc)
 		exit(1);
 	}
 	else if (argc == 2)
-		return(1);
+		return (1);
 	else
-		return(0);
+		return (0);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -36,7 +36,6 @@ int main(int argc, char **argv)
 	stack_a = stack_init(argv, argc, argv_flag);
 	stack_b = NULL;
 	stack_len = get_stack_len(stack_a);
-	//if (get_stack_len(stack_a) > 1)
 	stack_a = add_index(stack_a, stack_len);
 	stack_a = sort_numbers(stack_a, stack_b, stack_len);
 	ft_stclear(&stack_a);

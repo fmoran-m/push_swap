@@ -5,7 +5,7 @@ t_stack	*get_selected_node(t_stack *stack_a)
 	t_stack	*selected;
 
 	selected = stack_a;
-	while(stack_a)
+	while (stack_a)
 	{
 		if (stack_a->movs < selected->movs)
 			selected = stack_a;
@@ -14,22 +14,23 @@ t_stack	*get_selected_node(t_stack *stack_a)
 	return (selected);
 }
 
-static t_movs	get_push_a_params(t_stack **stack_a, t_stack **stack_b, t_stack *selected, t_movs movs)
+static t_movs	get_push_a_params(t_stack **stack_a, t_stack **stack_b,
+		t_stack *selected, t_movs movs)
 {
-	t_stack		*head_a;
-	t_stack		*head_b;
+	t_stack	*head_a;
+	t_stack	*head_b;
 
 	head_a = *stack_a;
 	head_b = *stack_b;
 	movs.movs_a = 0;
 	movs.movs_b = 0;
-	while(*stack_a != selected)
+	while (*stack_a != selected)
 	{
 		movs.movs_a++;
 		*stack_a = (*stack_a)->next;
 	}
 	*stack_a = head_a;
-	while(*stack_b != selected->trg_node)
+	while (*stack_b != selected->trg_node)
 	{
 		movs.movs_b++;
 		*stack_b = (*stack_b)->next;
@@ -38,7 +39,7 @@ static t_movs	get_push_a_params(t_stack **stack_a, t_stack **stack_b, t_stack *s
 	movs.med_a = (float)movs.stack_len_a / 2;
 	movs.med_b = (float)movs.stack_len_b / 2;
 	movs.rev_flag_a = 0;
-	return(movs);
+	return (movs);
 }
 
 static t_movs	define_stack_direction(t_movs movs)
@@ -54,13 +55,13 @@ static t_movs	define_stack_direction(t_movs movs)
 		movs.rev_flag_b = 1;
 		movs.movs_b = movs.stack_len_b - movs.movs_b;
 	}
-	return(movs);
+	return (movs);
 }
 
 void	push_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack		*selected;
-	t_movs		movs;
+	t_stack	*selected;
+	t_movs	movs;
 
 	movs.stack_len_a = get_stack_len(*stack_a);
 	movs.stack_len_b = get_stack_len(*stack_b);

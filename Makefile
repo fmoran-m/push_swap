@@ -30,11 +30,11 @@ BONUS_INCLUDES = push_swap_bonus.h
 
 RM = rm -f
 
-SRC = src/main.c src/stack_init.c src/stack_functions.c src/push_swap_utils.c src/push_swap_functions.c src/push_swap_functions_2.c src/sort_numbers.c src/add_index.c src/turk_algorithm.c src/exit_functions.c src/checks.c src/get_cheaper_num.c src/possible_movements.c src/push_a_to_b.c src/push_b_to_a.c src/double_rotations.c src/std_rotations.c
+SRC = src/main.c src/stack_init.c src/stack_functions.c src/push_swap_utils.c src/push_swap_functions.c src/push_swap_functions_2.c src/sort_numbers.c src/add_index.c src/turk_algorithm.c src/exit_functions.c src/checks.c src/get_cheaper_num.c src/possible_movements.c src/push_a_to_b.c src/push_b_to_a.c src/double_rotations.c src/std_rotations.c src/push_swap_functions_3.c
 
 OBJS = ${SRC:.c=.o}
 
-BONUS_SRC = bonus/main_bonus.c bonus/checks_bonus.c bonus/push_swap_utils_bonus.c bonus/stack_functions_bonus.c bonus/stack_init_bonus.c bonus/exit_functions_bonus.c bonus/push_swap_functions_2_bonus.c bonus/push_swap_functions_bonus.c
+BONUS_SRC = bonus/main_bonus.c bonus/checks_bonus.c bonus/push_swap_utils_bonus.c bonus/stack_functions_bonus.c bonus/stack_init_bonus.c bonus/exit_functions_bonus.c bonus/push_swap_functions_bonus_2.c bonus/push_swap_functions_bonus_3.c bonus/push_swap_functions_bonus.c
 
 BONUS_OBJS = ${BONUS_SRC:.c=.o}
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ../push_swap.h                                        :+:      :+:    :+:   */
+/*   ../push_swap.h                                        :+:      :+:    :+:*/
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -61,7 +61,8 @@ void		rrr(t_stack **stack_a, t_stack **stack_b);
 t_stack		*sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len);
 int			get_stack_len(t_stack *stack);
 t_stack		*add_index(t_stack *stack, int stack_len);
-t_stack		*sort_two_to_four(t_stack *stack_a, t_stack *stack_b, int stack_len);
+t_stack		*sort_two_to_four(t_stack *stack_a,
+				t_stack *stack_b, int stack_len);
 void		sort_three(t_stack **stack);
 int			get_max_position(t_stack *stack);
 t_stack		*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len);

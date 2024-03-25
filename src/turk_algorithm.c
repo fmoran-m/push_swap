@@ -23,29 +23,29 @@ t_stack	*turk_algorithm(t_stack *stack_a, t_stack *stack_b, int stack_len)
 	pb(&stack_a, &stack_b);
 	current_len = sort_stack_b(&stack_a, &stack_b, current_len);
 	sort_three(&stack_a);
-	while(current_len < stack_len)
+	while (current_len < stack_len)
 	{
 		push_b_to_a(&stack_a, &stack_b);
 		current_len++;
 	}
 	med = (float)stack_len / 2;
 	rot = rots_min_to_top(stack_a);
-	while(stack_a->pos != 0)
+	while (stack_a->pos != 0)
 	{
 		if (rot <= med)
 			ra(&stack_a, PRINT);
 		else
 			rra(&stack_a, PRINT);
 	}
-	return(stack_a);
+	return (stack_a);
 }
 
 int	sort_stack_b(t_stack **stack_a, t_stack **stack_b, int current_len)
 {
-	t_stack *head_a;
-	t_stack *head_b;
+	t_stack	*head_a;
+	t_stack	*head_b;
 
-	while(current_len > 3)
+	while (current_len > 3)
 	{
 		head_a = *stack_a;
 		head_b = *stack_b;
@@ -67,11 +67,11 @@ void	get_target_node(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*head_b;
 
 	head_b = *stack_b;
-	while(*stack_a)
+	while (*stack_a)
 	{
 		diff = INT_MIN;
 		*stack_b = head_b;
-		while(*stack_b)
+		while (*stack_b)
 		{
 			if (((*stack_a)->pos > (*stack_b)->pos)
 				&& (((*stack_b)->pos - (*stack_a)->pos) > diff))
@@ -94,7 +94,7 @@ t_stack	*get_bigger_node(t_stack *stack_b)
 
 	bigger_node = stack_b;
 	max = stack_b->pos;
-	while(stack_b)
+	while (stack_b)
 	{
 		if (stack_b->pos > max)
 		{
@@ -103,7 +103,7 @@ t_stack	*get_bigger_node(t_stack *stack_b)
 		}
 		stack_b = stack_b->next;
 	}
-	return(bigger_node);
+	return (bigger_node);
 }
 
 int	rots_min_to_top(t_stack *stack)

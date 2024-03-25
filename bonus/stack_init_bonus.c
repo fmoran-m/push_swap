@@ -27,7 +27,7 @@ static t_stack	*create_stack(char **numbers)
 	check_max_int(num, numbers, node);
 	head = node;
 	i++;
-	while(numbers[i])
+	while (numbers[i])
 	{
 		num = ft_long_atoi(numbers[i]);
 		check_max_int(num, numbers, head);
@@ -50,7 +50,7 @@ static char	**res_mem(char **argv, int argc)
 	matrix = malloc(argc * sizeof(char *));
 	if (!matrix)
 		free_and_exit(NULL, NULL);
-	while(i < argc - 1)
+	while (i < argc - 1)
 	{
 		matrix[i] = ft_calloc(ft_strlen(argv[i + 1]) + 1, sizeof(char));
 		if (!matrix[i])
@@ -58,7 +58,7 @@ static char	**res_mem(char **argv, int argc)
 		i++;
 	}
 	matrix[i] = NULL;
-	return(matrix);
+	return (matrix);
 }
 
 static char	**allocate_matrix(char **argv, int argc)
@@ -70,7 +70,7 @@ static char	**allocate_matrix(char **argv, int argc)
 	i = 0;
 	j = 0;
 	matrix = res_mem(argv, argc);
-	while(matrix[i])
+	while (matrix[i])
 	{
 		j = 0;
 		while (argv[i + 1][j])
@@ -80,15 +80,15 @@ static char	**allocate_matrix(char **argv, int argc)
 		}
 		i++;
 	}
-	return(matrix);
+	return (matrix);
 }
 
-static void check_all_empty(char **argv, int argc)
+static void	check_all_empty(char **argv, int argc)
 {
-	int i;
+	int	i;
 
 	i = 1;
-	while(i < argc)
+	while (i < argc)
 	{
 		check_empty_string(argv[i]);
 		i++;
@@ -115,5 +115,5 @@ t_stack	*stack_init(char **argv, int argc, int argv_flag)
 	control_digits(numbers);
 	stack_a = create_stack(numbers);
 	ft_free_matrix(numbers);
-	return(stack_a);
+	return (stack_a);
 }

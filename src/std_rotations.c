@@ -32,9 +32,9 @@ static t_movs	rot_stack_b_updt_movs(t_movs movs, t_stack **stack_b)
 
 t_movs	std_rotations(t_movs movs, t_stack **stack_a, t_stack **stack_b)
 {
-	while(movs.movs_a > 0)
+	while (movs.movs_a > 0)
 		movs = rot_stack_a_updt_movs(movs, stack_a);
-	while(movs.movs_b > 0)
+	while (movs.movs_b > 0)
 		movs = rot_stack_b_updt_movs(movs, stack_b);
-	return(movs);
+	return (movs);
 }

@@ -12,7 +12,8 @@
 
 #include "../push_swap.h"
 
-static t_movs	movs_init(int movs_a, int movs_b, int stack_len_a, int stack_len_b)
+static t_movs	movs_init(int movs_a, int movs_b, int stack_len_a,
+		int stack_len_b)
 {
 	t_movs	movs;
 
@@ -32,15 +33,15 @@ static int	get_movs(int movs_a, int movs_b, int stack_len_a, int stack_len_b)
 
 	movs = movs_init(movs_a, movs_b, stack_len_a, stack_len_b);
 	if ((movs.movs_a <= movs.med_a) && (movs.movs_b <= movs.med_b))
-		return(both_below_median(movs));
+		return (both_below_median(movs));
 	else if ((movs.movs_a > movs.med_a) && (movs.movs_b > movs.med_b))
-		return(both_above_median(movs));
-	else if(movs.movs_a > movs.med_a)
-		return(a_above_median(movs));
-	else if(movs.movs_b > movs.med_b)
-		return(b_above_median(movs));
+		return (both_above_median(movs));
+	else if (movs.movs_a > movs.med_a)
+		return (a_above_median(movs));
+	else if (movs.movs_b > movs.med_b)
+		return (b_above_median(movs));
 	else
-		return(movs.total_movs);
+		return (movs.total_movs);
 }
 
 void	get_cheaper_num(t_stack **stack_a, t_stack **stack_b)
@@ -55,7 +56,7 @@ void	get_cheaper_num(t_stack **stack_a, t_stack **stack_b)
 	stack_len_a = get_stack_len(*stack_a);
 	stack_len_b = get_stack_len(*stack_b);
 	movs_a = 0;
-	while(*stack_a)
+	while (*stack_a)
 	{
 		movs_b = 0;
 		*stack_b = head_b;

@@ -17,7 +17,7 @@ int	check_sort(t_stack *stack)
 	int	temp;
 
 	temp = stack->num;
-	while(stack)
+	while (stack)
 	{
 		if (temp > stack->num)
 			return (0);
@@ -35,9 +35,9 @@ int	control_argc(int argc)
 		exit(1);
 	}
 	else if (argc == 2)
-		return(1);
+		return (1);
 	else
-		return(0);
+		return (0);
 }
 
 void	apply_input(char *str, t_stack **stack_a, t_stack **stack_b)
@@ -60,15 +60,15 @@ void	apply_input(char *str, t_stack **stack_a, t_stack **stack_b)
 		rr(stack_a, stack_b);
 	else if (!ft_strcmp("rra\n", str))
 		rra(stack_a, NO_PRINT);
-	else if(!ft_strcmp("rrb\n", str))
+	else if (!ft_strcmp("rrb\n", str))
 		rrb(stack_b, NO_PRINT);
-	else if(!ft_strcmp("rrr\n", str))
+	else if (!ft_strcmp("rrr\n", str))
 		rrr(stack_a, stack_b);
 	else
 		exit_gnl(stack_a, stack_b, str);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -79,7 +79,7 @@ int main(int argc, char **argv)
 	stack_a = stack_init(argv, argc, argv_flag);
 	stack_b = NULL;
 	str = get_next_line(0);
-	while(str)
+	while (str)
 	{
 		apply_input(str, &stack_a, &stack_b);
 		free(str);

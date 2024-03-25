@@ -15,8 +15,8 @@
 long long	ft_long_atoi(const char *str)
 {
 	long long	acum;
-	int	i;
-	int	flag;
+	int			i;
+	int			flag;
 
 	acum = 0;
 	i = 0;
@@ -44,7 +44,7 @@ int	get_stack_len(t_stack *stack)
 	int	i;
 
 	i = 0;
-	while(stack)
+	while (stack)
 	{
 		stack = stack->next;
 		i++;

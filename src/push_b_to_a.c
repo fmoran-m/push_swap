@@ -21,7 +21,7 @@ static int	get_rotations_for_min(t_stack **stack_a)
 	i = 0;
 	rot = 0;
 	diff = (*stack_a)->pos;
-	while(*stack_a)
+	while (*stack_a)
 	{
 		if ((*stack_a)->pos < diff)
 			rot = i;
@@ -42,10 +42,10 @@ static int	get_rotations(t_stack **stack_a, t_stack **stack_b)
 	i = 0;
 	diff = INT_MAX;
 	head = *stack_a;
-	while(*stack_a)
+	while (*stack_a)
 	{
-		if (((*stack_a)->pos > (*stack_b)->pos)
-			&& ((*stack_a)->pos - (*stack_b)->pos) < diff)
+		if (((*stack_a)->pos > (*stack_b)->pos) && ((*stack_a)->pos
+				- (*stack_b)->pos) < diff)
 		{
 			rot = i;
 			diff = (*stack_a)->pos - (*stack_b)->pos;
@@ -55,13 +55,13 @@ static int	get_rotations(t_stack **stack_a, t_stack **stack_b)
 	}
 	*stack_a = head;
 	if (diff == INT_MAX)
-		rot =  get_rotations_for_min(stack_a);
+		rot = get_rotations_for_min(stack_a);
 	return (rot);
 }
 
 static void	rotate_below_med(t_stack **stack_a, t_stack **stack_b, int rot)
 {
-	while(rot > 0)
+	while (rot > 0)
 	{
 		ra(stack_a, PRINT);
 		rot--;
@@ -69,7 +69,8 @@ static void	rotate_below_med(t_stack **stack_a, t_stack **stack_b, int rot)
 	pa(stack_a, stack_b);
 }
 
-static void	rotate_above_med(t_stack **stack_a, t_stack **stack_b, int rot, int stack_len)
+static void	rotate_above_med(t_stack **stack_a, t_stack **stack_b, int rot,
+		int stack_len)
 {
 	int	i;
 

@@ -15,13 +15,13 @@
 t_stack	*sort_numbers(t_stack *stack_a, t_stack *stack_b, int stack_len)
 {
 	if (check_sort(stack_a))
-		return(stack_a);
+		return (stack_a);
 	if (stack_len < 5)
 		stack_a = sort_two_to_four(stack_a, stack_b, stack_len);
-	else 
+	else
 		stack_a = turk_algorithm(stack_a, stack_b, stack_len);
-	return(stack_a);
-}	
+	return (stack_a);
+}
 
 int	check_sort(t_stack *stack)
 {
@@ -29,8 +29,8 @@ int	check_sort(t_stack *stack)
 
 	temp = 0;
 	if (get_stack_len(stack) == 1)
-		return(1);
-	while(stack)
+		return (1);
+	while (stack)
 	{
 		if (temp != stack->pos)
 			return (0);
@@ -40,10 +40,10 @@ int	check_sort(t_stack *stack)
 	return (1);
 }
 
-t_stack *sort_two_to_four(t_stack *stack_a, t_stack *stack_b, int stack_len)
+t_stack	*sort_two_to_four(t_stack *stack_a, t_stack *stack_b, int stack_len)
 {
 	if (check_sort(stack_a))
-		return(stack_a);
+		return (stack_a);
 	if (stack_len == 2)
 	{
 		if (stack_a->pos != 0)
@@ -56,7 +56,7 @@ t_stack *sort_two_to_four(t_stack *stack_a, t_stack *stack_b, int stack_len)
 		pb(&stack_a, &stack_b);
 		sort_three(&stack_a);
 		push_b_to_a(&stack_a, &stack_b);
-		while(stack_a->pos != 0)
+		while (stack_a->pos != 0)
 			rra(&stack_a, PRINT);
 	}
 	return (stack_a);
@@ -65,7 +65,7 @@ t_stack *sort_two_to_four(t_stack *stack_a, t_stack *stack_b, int stack_len)
 void	sort_three(t_stack **stack)
 {
 	t_stack	*next;
-	t_stack *head;
+	t_stack	*head;
 	int		max;
 
 	head = *stack;
@@ -82,11 +82,9 @@ void	sort_three(t_stack **stack)
 		rra(stack, PRINT);
 		sort_three(stack);
 	}
-	else 
+	else
 	{
 		if ((*stack)->pos > next->pos)
 			sa(stack, PRINT);
 	}
 }
-
-

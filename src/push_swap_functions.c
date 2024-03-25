@@ -15,12 +15,12 @@
 void	sa(t_stack **stack_a, int print_flag)
 {
 	t_stack	*temp;
-	t_stack *temp2;
+	t_stack	*temp2;
 
 	if (!*stack_a)
-		return;
-	if(get_stack_len(*stack_a) <= 1)
-		return;
+		return ;
+	if (get_stack_len(*stack_a) <= 1)
+		return ;
 	temp = *stack_a;
 	*stack_a = (*stack_a)->next;
 	temp2 = (*stack_a)->next;
@@ -33,12 +33,12 @@ void	sa(t_stack **stack_a, int print_flag)
 void	sb(t_stack **stack_b, int print_flag)
 {
 	t_stack	*temp;
-	t_stack *temp2;
+	t_stack	*temp2;
 
 	if (!*stack_b)
-		return;
-	if(get_stack_len(*stack_b) <= 1)
-		return;
+		return ;
+	if (get_stack_len(*stack_b) <= 1)
+		return ;
 	temp = *stack_b;
 	*stack_b = (*stack_b)->next;
 	temp2 = (*stack_b)->next;
@@ -57,10 +57,10 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!*stack_a)
-		return;
+		return ;
 	temp = *stack_b;
 	*stack_b = *stack_a;
 	*stack_a = (*stack_a)->next;
@@ -70,10 +70,10 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!*stack_b)
-		return;
+		return ;
 	temp = *stack_a;
 	*stack_a = *stack_b;
 	*stack_b = (*stack_b)->next;

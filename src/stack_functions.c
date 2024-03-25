@@ -49,14 +49,6 @@ t_stack	*ft_stlast(t_stack *st)
 	return (st);
 }
 
-void	ft_stadd_front(t_stack **st, t_stack *new)
-{
-	if (!new || !st)
-		return ;
-	new->next = *st;
-	*st = new;
-}
-
 void	ft_stclear(t_stack **st)
 {
 	t_stack	*temp;

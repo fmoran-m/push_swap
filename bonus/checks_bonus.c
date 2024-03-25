@@ -18,12 +18,12 @@ void	control_digits(char **numbers)
 	int	j;
 
 	i = 0;
-	while(numbers[i])
+	while (numbers[i])
 	{
 		j = 0;
 		if (numbers[i][j] == '-')
 			j++;
-		while(numbers[i][j])
+		while (numbers[i][j])
 		{
 			if (!ft_isdigit(numbers[i][j]))
 				free_and_exit(NULL, numbers);
@@ -38,7 +38,7 @@ void	check_repeat(int num, char **numbers, t_stack *stack)
 	t_stack	*head;
 
 	head = stack;
-	while(stack)
+	while (stack)
 	{
 		if (num == stack->num)
 			free_and_exit(head, numbers);
@@ -59,7 +59,7 @@ void	check_empty_string(char *argv)
 	if (!*argv)
 		free_and_exit(NULL, NULL);
 	i = 0;
-	while(argv[i] == ' ')
+	while (argv[i] == ' ')
 		i++;
 	if (argv[i] == 0)
 		free_and_exit(NULL, NULL);
