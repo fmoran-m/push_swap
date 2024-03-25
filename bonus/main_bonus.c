@@ -12,7 +12,7 @@
 
 #include "../push_swap_bonus.h"
 
-static int	check_sort(t_stack *stack)
+int	check_sort(t_stack *stack)
 {
 	int	temp;
 
@@ -27,7 +27,7 @@ static int	check_sort(t_stack *stack)
 	return (1);
 }
 
-static int	control_argc(int argc)
+int	control_argc(int argc)
 {
 	if (argc < 2)
 	{
@@ -40,7 +40,7 @@ static int	control_argc(int argc)
 		return(0);
 }
 
-static void	apply_input(char *str, t_stack **stack_a, t_stack **stack_b)
+void	apply_input(char *str, t_stack **stack_a, t_stack **stack_b)
 {
 	if (!ft_strcmp("sa\n", str))
 		sa(stack_a, NO_PRINT);
@@ -65,13 +65,7 @@ static void	apply_input(char *str, t_stack **stack_a, t_stack **stack_b)
 	else if(!ft_strcmp("rrr\n", str))
 		rrr(stack_a, stack_b);
 	else
-	{
-		ft_printf("Error\n");
-		ft_stclear(stack_a);
-		ft_stclear(stack_b);
-		free(str);
-		exit(1);
-	}
+		exit_gnl(stack_a, stack_b, str);
 }
 
 int main(int argc, char **argv)

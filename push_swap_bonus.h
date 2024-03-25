@@ -51,4 +51,9 @@ void		rr(t_stack **stack_a, t_stack **stack_b);
 void		rra(t_stack **stack_a, int print_flag);
 void		rrb(t_stack **stack_b, int print_flag);
 void		rrr(t_stack **stack_a, t_stack **stack_b);
+void		exit_gnl(t_stack **stack_a, t_stack **stack_b, char *str);
+void		apply_input(char *str, t_stack **stack_a, t_stack **stack_b);
+int			control_argc(int argc);
+int			check_sort(t_stack *stack);
+
 #endif

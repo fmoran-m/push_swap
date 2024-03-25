@@ -12,7 +12,7 @@
 
 #include "../push_swap_bonus.h"
 
-t_stack	*create_stack(char **numbers)
+static t_stack	*create_stack(char **numbers)
 {
 	long long	num;
 	t_stack		*node;

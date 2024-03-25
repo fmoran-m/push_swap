@@ -36,3 +36,14 @@ void	free_uncomplete_matrix(char **matrix, int current_ind)
 	ft_putendl_fd("Error", 2);
 	exit(1);
 }
+
+void	exit_gnl(t_stack **stack_a, t_stack **stack_b, char *str)
+{
+	close(0);
+	get_next_line(0);
+	ft_putendl_fd("Error", 2);
+	ft_stclear(stack_a);
+	ft_stclear(stack_b);
+	free(str);
+	exit(1);
+}
