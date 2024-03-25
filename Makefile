@@ -30,7 +30,7 @@ BONUS_INCLUDES = push_swap_bonus.h
 
 RM = rm -f
 
-SRC = src/main.c src/stack_init.c src/stack_functions.c src/push_swap_utils.c src/push_swap_functions.c src/push_swap_functions_2.c src/sort_numbers.c src/add_index.c src/sort_two_to_four.c src/turk_functions.c src/exit_functions.c src/checks.c src/get_movements.c src/possible_movements.c src/push_a_to_b.c src/push_b_to_a.c
+SRC = src/main.c src/stack_init.c src/stack_functions.c src/push_swap_utils.c src/push_swap_functions.c src/push_swap_functions_2.c src/sort_numbers.c src/add_index.c src/turk_algorithm.c src/exit_functions.c src/checks.c src/get_cheaper_num.c src/possible_movements.c src/push_a_to_b.c src/push_b_to_a.c src/double_rotations.c src/std_rotations.c
 
 OBJS = ${SRC:.c=.o}
 

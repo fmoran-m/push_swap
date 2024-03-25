@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-t_stack	*create_stack(char **numbers)
+static t_stack	*create_stack(char **numbers)
 {
 	long long	num;
 	t_stack		*node;
@@ -81,18 +81,6 @@ static char	**allocate_matrix(char **argv, int argc)
 		i++;
 	}
 	return(matrix);
-}
-
-static void check_all_empty(char **argv, int argc)
-{
-	int i;
-
-	i = 1;
-	while(i < argc)
-	{
-		check_empty_string(argv[i]);
-		i++;
-	}
 }
 
 t_stack	*stack_init(char **argv, int argc, int argv_flag)

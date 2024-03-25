@@ -68,7 +68,7 @@ void	rra(t_stack **stack_a, int print_flag)
 
 	if (!*stack_a)
 		return;
-	if(get_stack_len(*stack_b) <= 1)
+	if(get_stack_len(*stack_a) <= 1)
 		return;
 	head = *stack_a;
 	while((*stack_a)->next != NULL)

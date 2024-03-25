@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-t_movs	movs_init(int movs_a, int movs_b, int stack_len_a, int stack_len_b)
+static t_movs	movs_init(int movs_a, int movs_b, int stack_len_a, int stack_len_b)
 {
 	t_movs	movs;
 
@@ -26,7 +26,7 @@ t_movs	movs_init(int movs_a, int movs_b, int stack_len_a, int stack_len_b)
 	return (movs);
 }
 
-int	get_movs(int movs_a, int movs_b, int stack_len_a, int stack_len_b)
+static int	get_movs(int movs_a, int movs_b, int stack_len_a, int stack_len_b)
 {
 	t_movs	movs;
 
@@ -59,7 +59,7 @@ void	get_cheaper_num(t_stack **stack_a, t_stack **stack_b)
 	{
 		movs_b = 0;
 		*stack_b = head_b;
-		while ((*stack_a)->obj_node != *stack_b)
+		while ((*stack_a)->trg_node != *stack_b)
 		{
 			movs_b++;
 			*stack_b = (*stack_b)->next;

@@ -25,17 +25,6 @@ static int	control_argc(int argc)
 		return(0);
 }
 
-/*
-static void	print_stack(t_stack *stack_a)
-{
-	while(stack_a)
-	{
-		printf("Number: %d, index: %d\n", stack_a->num, stack_a->pos);
-		stack_a = stack_a->next;
-	}
-}
-*/
-
 int main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -47,8 +36,8 @@ int main(int argc, char **argv)
 	stack_a = stack_init(argv, argc, argv_flag);
 	stack_b = NULL;
 	stack_len = get_stack_len(stack_a);
-	if (get_stack_len(stack_a) > 1)
-		stack_a = add_index(stack_a, stack_len);
+	//if (get_stack_len(stack_a) > 1)
+	stack_a = add_index(stack_a, stack_len);
 	stack_a = sort_numbers(stack_a, stack_b, stack_len);
 	ft_stclear(&stack_a);
 	ft_stclear(&stack_b);

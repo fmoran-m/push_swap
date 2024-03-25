@@ -22,7 +22,7 @@ typedef	struct s_stack
 	int				pos;
 	int				movs;
 	struct s_stack	*next;
-	struct s_stack	*obj_node;
+	struct s_stack	*trg_node;
 }					t_stack;
 void		control_digits(char **numbers);
 void		check_repeat(int num, char **numbers, t_stack *stack);
@@ -55,5 +55,4 @@ void		exit_gnl(t_stack **stack_a, t_stack **stack_b, char *str);
 void		apply_input(char *str, t_stack **stack_a, t_stack **stack_b);
 int			control_argc(int argc);
 int			check_sort(t_stack *stack);
-
 #endif

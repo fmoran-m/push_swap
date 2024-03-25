@@ -64,3 +64,15 @@ void	check_empty_string(char *argv)
 	if (argv[i] == 0)
 		free_and_exit(NULL, NULL);
 }
+
+void check_all_empty(char **argv, int argc)
+{
+	int i;
+
+	i = 1;
+	while(i < argc)
+	{
+		check_empty_string(argv[i]);
+		i++;
+	}
+}

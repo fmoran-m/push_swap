@@ -65,16 +65,3 @@ int	get_max_position(t_stack *stack)
 	}
 	return (max);
 }
-
-int	get_min_to_top(t_stack *stack)
-{
-	int	rot;
-
-	rot = 0;
-	while (stack->pos != 0)
-	{
-		stack = stack->next;
-		rot++;
-	}
-	return (rot);
-}
