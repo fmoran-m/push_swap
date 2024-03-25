@@ -16,6 +16,8 @@ int	check_sort(t_stack *stack)
 {
 	int	temp;
 
+	if (!stack)
+		return (0);
 	temp = stack->num;
 	while (stack)
 	{

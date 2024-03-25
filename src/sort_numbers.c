@@ -28,6 +28,8 @@ int	check_sort(t_stack *stack)
 	int	temp;
 
 	temp = 0;
+	if (!stack)
+		return (0);
 	if (get_stack_len(stack) == 1)
 		return (1);
 	while (stack)
