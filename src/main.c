@@ -15,10 +15,7 @@
 static int	control_argc(int argc)
 {
 	if (argc < 2)
-	{
-		ft_putendl_fd("Error", 2);
 		exit(1);
-	}
 	else if (argc == 2)
 		return (1);
 	else
