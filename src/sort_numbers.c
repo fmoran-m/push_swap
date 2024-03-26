@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 19:38:11 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/26 16:33:27 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:40:15 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,9 @@ t_stack	*sort_two_to_four(t_stack *stack_a, t_stack *stack_b, int stack_len)
 void	sort_three(t_stack **stack)
 {
 	t_stack	*next;
-	t_stack	*head;
 	int		max;
 
-	head = *stack;
 	max = get_max_position(*stack);
-	*stack = head;
 	next = (*stack)->next;
 	if ((*stack)->pos == max)
 	{

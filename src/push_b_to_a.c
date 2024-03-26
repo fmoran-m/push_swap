@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 22:18:30 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/23 17:05:10 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:56:03 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ void	push_b_to_a(t_stack **stack_a, t_stack **stack_b)
 	rot = get_rotations(stack_a, stack_b);
 	*stack_a = head;
 	stack_len = get_stack_len(*stack_a);
-	*stack_a = head;
 	med = (float)stack_len / 2;
 	if (rot == 0)
 		pa(stack_a, stack_b);
