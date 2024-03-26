@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 19:38:11 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/23 17:05:10 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:33:27 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ int	check_sort(t_stack *stack)
 
 t_stack	*sort_two_to_four(t_stack *stack_a, t_stack *stack_b, int stack_len)
 {
-	if (check_sort(stack_a))
-		return (stack_a);
 	if (stack_len == 2)
 	{
 		if (stack_a->pos != 0)
