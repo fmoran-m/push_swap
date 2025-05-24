@@ -6,7 +6,7 @@
 /*   By: fmoran-m <fmoran-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 22:18:30 by fmoran-m          #+#    #+#             */
-/*   Updated: 2024/03/26 16:56:03 by fmoran-m         ###   ########.fr       */
+/*   Updated: 2025/05/24 15:30:40 by fmoran-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,24 @@
 
 static int	get_rotations_for_min(t_stack **stack_a)
 {
-	int	i;
-	int	rot;
-	int	diff;
+	int		i;
+	int		rot;
+	int		diff;
+	t_stack	*tmp;
 
 	i = 0;
 	rot = 0;
-	diff = (*stack_a)->pos;
-	while (*stack_a)
+	tmp = *stack_a;
+	diff = tmp->pos;
+	while (tmp)
 	{
-		if ((*stack_a)->pos < diff)
+		if (tmp->pos < diff)
+		{
+			diff = tmp->pos;
 			rot = i;
+		}
+		tmp = tmp->next;
 		i++;
-		*stack_a = (*stack_a)->next;
 	}
 	return (rot);
 }
